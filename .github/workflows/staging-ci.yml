@@ -14,7 +14,7 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,3 +32,55 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Start production server
+        run: |
+          nohup npm run start -- -p 3000 > /tmp/pocket-goat-next.log 2>&1 &
+          echo $! > /tmp/pocket-goat-next.pid
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:3000/ro >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/pocket-goat-next.log
+          exit 1
+
+      - name: Smoke test RO and EN routes
+        run: |
+          routes=(
+            / /ro /en
+            /ro/space /ro/cafe /ro/culture /ro/cinematic /ro/dobrogea /ro/community /ro/accessibility /ro/contact
+            /en/space /en/cafe /en/culture /en/cinematic /en/dobrogea /en/community /en/accessibility /en/contact
+          )
+          for route in "${routes[@]}"; do
+            echo "Checking $route"
+            curl -fsSL "http://127.0.0.1:3000$route" >/dev/null
+          done
+
+      - name: Capture browser QA
+        run: |
+          mkdir -p qa-artifacts
+          BROWSER="$(command -v google-chrome || command -v chromium-browser || command -v chromium || true)"
+          if [ -z "$BROWSER" ]; then
+            echo "No headless Chromium browser available on runner."
+            exit 1
+          fi
+          "$BROWSER" --headless --no-sandbox --disable-gpu --hide-scrollbars \
+            --window-size=1440,1100 \
+            --screenshot=qa-artifacts/home-ro-desktop.png \
+            http://127.0.0.1:3000/ro
+          "$BROWSER" --headless --no-sandbox --disable-gpu --hide-scrollbars \
+            --window-size=390,844 \
+            --screenshot=qa-artifacts/home-ro-mobile.png \
+            http://127.0.0.1:3000/ro
+          cp /tmp/pocket-goat-next.log qa-artifacts/next-server.log
+
+      - name: Upload QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pocket-goat-browser-qa
+          path: qa-artifacts
+          if-no-files-found: warn
+          retention-days: 7
