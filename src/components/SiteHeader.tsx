@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { Locale, copy } from "@/lib/i18n";
 import { Logo } from "./Logo";
+import { LocaleSwitch } from "./LocaleSwitch";
+import { MobileMenu } from "./MobileMenu";
 
 export function SiteHeader({ locale }: { locale: Locale }) {
   const t = copy[locale];
-  const other = locale === "ro" ? "en" : "ro";
   return (
     <header className="site-header">
       <Link href={`/${locale}`} className="logo-link"><Logo /></Link>
@@ -16,7 +17,10 @@ export function SiteHeader({ locale }: { locale: Locale }) {
         <Link href={`/${locale}/community`}>{t.nav.community}</Link>
         <Link href={`/${locale}/contact`}>{t.nav.visit}</Link>
       </nav>
-      <Link className="locale-switch" href={`/${other}`} hrefLang={other}>{other.toUpperCase()}</Link>
+      <div className="header-actions">
+        <LocaleSwitch />
+        <MobileMenu locale={locale} />
+      </div>
     </header>
   );
 }
