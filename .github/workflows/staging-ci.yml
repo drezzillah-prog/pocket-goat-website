@@ -66,6 +66,7 @@ jobs:
             echo "No headless Chromium browser available on runner."
             exit 1
           fi
+
           "$BROWSER" --headless --no-sandbox --disable-gpu --hide-scrollbars --virtual-time-budget=1200 \
             --window-size=1440,1100 \
             --screenshot=qa-artifacts/home-ro-desktop.png \
@@ -74,11 +75,27 @@ jobs:
             --window-size=390,844 \
             --screenshot=qa-artifacts/home-ro-mobile.png \
             http://127.0.0.1:3000/ro
-          "$BROWSER" --headless --no-sandbox --disable-gpu --hide-scrollbars --virtual-time-budget=1200 \
-            --window-size=1440,11000 \
-            --screenshot=qa-artifacts/home-ro-long.png \
-            http://127.0.0.1:3000/ro
+
+          "$BROWSER" --headless --no-sandbox --disable-gpu --hide-scrollbars \
+            --remote-debugging-port=9222 --user-data-dir=/tmp/pocket-goat-chrome about:blank \
+            > /tmp/pocket-goat-chrome.log 2>&1 &
+          CHROME_PID=$!
+
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:9222/json/version >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+
+          node scripts/capture-full.mjs \
+            http://127.0.0.1:3000/ro \
+            qa-artifacts/home-ro-full.png \
+            1440 1000
+
+          kill "$CHROME_PID" || true
           cp /tmp/pocket-goat-next.log qa-artifacts/next-server.log
+          cp /tmp/pocket-goat-chrome.log qa-artifacts/chrome-qa.log
 
       - name: Upload QA artifacts
         if: always()
