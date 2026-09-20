@@ -1,0 +1,22 @@
+import Link from "next/link";
+import { Locale, copy } from "@/lib/i18n";
+import { Logo } from "./Logo";
+
+export function SiteHeader({ locale }: { locale: Locale }) {
+  const t = copy[locale];
+  const other = locale === "ro" ? "en" : "ro";
+  return (
+    <header className="site-header">
+      <Link href={`/${locale}`} className="logo-link"><Logo /></Link>
+      <nav className="main-nav" aria-label={locale === "ro" ? "Navigație principală" : "Main navigation"}>
+        <Link href={`/${locale}/space`}>{t.nav.space}</Link>
+        <Link href={`/${locale}/cafe`}>{t.nav.cafe}</Link>
+        <Link href={`/${locale}/culture`}>{t.nav.culture}</Link>
+        <Link href={`/${locale}/cinematic`}>{t.nav.cinematic}</Link>
+        <Link href={`/${locale}/community`}>{t.nav.community}</Link>
+        <Link href={`/${locale}/contact`}>{t.nav.visit}</Link>
+      </nav>
+      <Link className="locale-switch" href={`/${other}`} hrefLang={other}>{other.toUpperCase()}</Link>
+    </header>
+  );
+}
