@@ -64,3 +64,35 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}::selecti
 .mobile-menu nav a:last-child{border-bottom:0}
 @media(max-width:1050px){.site-header{grid-template-columns:1fr auto}.header-actions{grid-column:2}.mobile-menu{display:block}}
 @media(max-width:760px){.header-actions{gap:7px}.locale-switch{padding:7px 9px}.mobile-menu summary{padding:8px 9px}.mobile-menu summary span{font-size:8px}}
+
+
+/* Homepage narrative flow */
+.welcome-section{padding:clamp(90px,10vw,150px) clamp(24px,6vw,96px);display:grid;grid-template-columns:minmax(280px,.9fr) minmax(0,1.6fr);gap:clamp(50px,8vw,140px);align-items:start}
+.welcome-copy{position:sticky;top:120px;max-width:560px}
+.welcome-copy h2{font-family:var(--serif);font-weight:400;letter-spacing:-.025em;line-height:1.02;font-size:clamp(44px,5.2vw,78px);margin:0 0 24px}
+.welcome-copy>p:not(.kicker){font-size:18px;line-height:1.8;color:#3f4f46}
+.welcome-options{border-top:1px solid rgba(19,32,25,.18)}
+.welcome-card{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:28px 0;border-bottom:1px solid rgba(19,32,25,.18);align-items:start}
+.welcome-card>span{font-size:9px;letter-spacing:.18em;color:#8a7455;padding-top:7px}
+.welcome-card h3{font-family:var(--serif);font-size:clamp(28px,3vw,44px);font-weight:400;line-height:1.04;margin:0 0 8px}
+.welcome-card p{margin:0;max-width:52ch;color:#45544c}
+
+.hard-day-note{margin-top:44px;padding:28px 0 0;border-top:1px solid rgba(209,177,123,.24);display:grid;grid-template-columns:82px 1fr;gap:22px;align-items:start}
+.hard-day-note .hard-day-seal{width:66px;height:66px;margin:0}
+.hard-day-note small{font-size:7px;letter-spacing:.18em;color:var(--brass2)}
+.hard-day-note h3{font-family:var(--serif);font-size:32px;font-weight:400;line-height:1.05;margin:6px 0 10px}
+.hard-day-note p{margin:0;color:rgba(247,241,229,.68);font-size:15px;line-height:1.7}
+.hard-day-note strong{display:inline-block;margin-top:12px;font-size:10px;letter-spacing:.12em;color:var(--brass2);font-weight:700}
+
+@media(max-width:1050px){
+  .welcome-section{grid-template-columns:1fr}
+  .welcome-copy{position:static;max-width:760px}
+}
+@media(max-width:760px){
+  .welcome-section{padding:80px 22px;gap:40px}
+  .welcome-copy h2{font-size:clamp(40px,12vw,62px)}
+  .welcome-copy>p:not(.kicker){font-size:16px}
+  .welcome-card{grid-template-columns:42px 1fr;padding:24px 0}
+  .welcome-card h3{font-size:30px}
+  .hard-day-note{grid-template-columns:1fr;gap:14px}
+}
