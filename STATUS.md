@@ -21,7 +21,10 @@
 - provisional subtle goat/pocket mark
 
 ## Validation
-This branch is under CI validation. Do not merge the draft PR until lint and production build pass and the Vercel preview has been visually checked.
+Install, lint, production build, route smoke tests and browser QA are passing on GitHub Actions.
+
+## Vercel
+Git integration is connected. This commit intentionally triggers the first Preview Deployment from `staging/initial-build`; production remains on `main` until the preview is visually approved.
 
 ## Not fabricated
 No final physical-space photography, exact address, opening hours, opening date, final menu/prices, event dates, newsletter endpoint, reservations or payment flow have been invented.
