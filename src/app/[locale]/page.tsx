@@ -11,7 +11,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <>
       <section className="hero section-dark" id="top">
-        <div className="hero-atmosphere" aria-hidden="true"><div className="lamp-glow"/><div className="shelf-lines"/><div className="sea-line"/></div>
+        <div className="hero-atmosphere" aria-hidden="true">
+          <div className="lamp-glow"/>
+          <div className="shelf-lines"/>
+          <div className="sea-line"/>
+          <div className="hero-stamp"><span>CONSTANȚA</span><small>DOBROGEA · BLACK SEA</small></div>
+        </div>
         <div className="hero-copy">
           <p className="eyebrow">{t.heroEyebrow}</p>
           <h1>{t.heroTitle}</h1>
@@ -42,7 +47,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       <section className="hard-day section-ink">
-        <div className="hard-day-card"><p className="kicker">HARD DAY TEA</p><h2>{t.hardTitle}</h2><p>{t.hardText}</p><span className="no-explanation">NO EXPLANATION REQUIRED.</span></div>
+        <div className="hard-day-card">
+          <div className="hard-day-seal" aria-hidden="true"><span>PG</span><small>HOUSE TEA</small></div>
+          <p className="kicker">HARD DAY TEA</p>
+          <h2>{t.hardTitle}</h2>
+          <p>{t.hardText}</p>
+          <span className="no-explanation">NO EXPLANATION REQUIRED.</span>
+        </div>
       </section>
 
       <section className="culture-section section-paper">
@@ -60,7 +71,18 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       <section className="dobrogea-section section-paper">
-        <div className="archive-map" aria-hidden="true"><span className="coast c-a"/><span className="coast c-b"/><span className="archive-label l1">TOMIS</span><span className="archive-label l2">PORT</span><span className="archive-label l3">DOBROGEA</span></div>
+        <div className="archive-map" aria-hidden="true">
+          <span className="archive-fold f1"/>
+          <span className="archive-fold f2"/>
+          <span className="coast c-a"/>
+          <span className="coast c-b"/>
+          <span className="archive-label l1">TOMIS</span>
+          <span className="archive-label l2">PORT</span>
+          <span className="archive-label l3">DOBROGEA</span>
+          <span className="archive-label l4">PONTUS EUXINUS</span>
+          <span className="archive-pin">●</span>
+          <div className="archive-note"><small>BLACK SEA / MAREA NEAGRĂ</small><strong>Constanța</strong><span>memory · port · city · stories</span></div>
+        </div>
         <div className="section-heading"><p className="kicker">ROOTED HERE</p><h2>{t.rootedTitle}</h2><p>{t.rootedText}</p><SectionLink href={`/${locale}/dobrogea`}>{locale === "ro" ? "Constanța & Dobrogea" : "Constanța & Dobrogea"}</SectionLink></div>
       </section>
 
