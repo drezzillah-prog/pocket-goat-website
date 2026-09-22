@@ -96,3 +96,38 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}::selecti
   .welcome-card h3{font-size:30px}
   .hard-day-note{grid-template-columns:1fr;gap:14px}
 }
+
+
+/* Approved Pocket Goat image set — penultimate generation only */
+.pg-photo{margin:0;position:relative;overflow:hidden;border:1px solid rgba(209,177,123,.22);background:#09120e;box-shadow:0 28px 70px rgba(0,0,0,.18)}
+.pg-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.pg-photo figcaption{padding:13px 16px 15px;border-top:1px solid rgba(209,177,123,.16);font-family:var(--serif);font-size:13px;line-height:1.45;font-style:italic;opacity:.72}
+.section-paper .pg-photo{border-color:rgba(68,49,31,.18);background:#d7cebc;box-shadow:0 24px 60px rgba(38,27,18,.12)}
+.section-paper .pg-photo figcaption{border-color:rgba(68,49,31,.14);color:#465047}
+.pg-photo-wide img{aspect-ratio:16/9}
+.pg-photo-pockets img{aspect-ratio:16/10}
+.space-glimpse{padding:0 clamp(24px,6vw,96px) clamp(80px,8vw,120px)}
+.space-glimpse .pg-photo{max-width:1500px;margin-inline:auto}
+.quiet-photo-stack{display:grid;gap:24px}
+.quiet-photo-stack .quiet-table{min-height:330px}
+.space-master{padding:clamp(50px,7vw,95px) clamp(24px,6vw,96px)}
+.space-master .pg-photo{max-width:1450px;margin-inline:auto}
+.space-feature{padding:clamp(90px,10vw,150px) clamp(24px,6vw,96px)}
+.space-feature>.section-heading{max-width:760px;margin-bottom:52px}
+.pg-photo-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.75fr);gap:22px;align-items:start}
+.pg-photo-grid .pg-photo-detail img{aspect-ratio:3/4}
+.root-table-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);gap:42px;align-items:center}
+.root-table-layout .quiet-table{min-height:420px}
+@media(max-width:1050px){
+  .root-table-layout{grid-template-columns:1fr}
+  .pg-photo-grid{grid-template-columns:1fr}
+  .pg-photo-grid .pg-photo-detail{max-width:720px}
+  .pg-photo-grid .pg-photo-detail img{aspect-ratio:4/3}
+}
+@media(max-width:760px){
+  .space-glimpse{padding:0 22px 70px}
+  .space-master,.space-feature{padding:70px 22px}
+  .pg-photo-wide img,.pg-photo-pockets img,.pg-photo-grid .pg-photo-detail img{aspect-ratio:4/3}
+  .pg-photo figcaption{font-size:12px}
+  .quiet-photo-stack .quiet-table,.root-table-layout .quiet-table{min-height:370px}
+}
