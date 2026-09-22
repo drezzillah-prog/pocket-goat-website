@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { copy } from "@/lib/i18n";
-import { PocketWall } from "@/components/PocketWall";
 import { QuietTable } from "@/components/QuietTable";
 import { SectionLink } from "@/components/SectionLink";
 import { resolveLocale } from "@/lib/locale";
@@ -45,23 +45,60 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
+      <section className="space-glimpse section-dark">
+        <figure className="pg-photo pg-photo-wide">
+          <Image
+            src="/images/pocket-goat/penultimate/master.webp"
+            alt={ro ? "Interiorul Pocket Goat, cu biblioteca și masa ovală în aceeași încăpere" : "Pocket Goat interior, with the library and oval table in the same room"}
+            width={280}
+            height={210}
+            sizes="100vw"
+            unoptimized
+          />
+          <figcaption>{ro ? "Aceeași încăpere, văzută mai larg: biblioteca, zonele de stat și masa comună au fiecare locul lor." : "The same room from a wider angle: the library, seating areas and communal table each have their own place."}</figcaption>
+        </figure>
+      </section>
+
       <section className="pockets-section section-forest">
         <div className="section-heading">
-          <p className="kicker">{ro ? "UN COLȚ DOAR AL TĂU" : "A CORNER OF YOUR OWN"}</p>
+          <p className="kicker">{ro ? "THE POCKETS" : "THE POCKETS"}</p>
           <h2>{t.pocketsTitle}</h2>
-          <p>{t.pocketsText}</p>
-          <SectionLink href={`/${locale}/space#pockets`}>{ro ? "Vezi toate cele opt Pockets" : "See all eight Pockets"}</SectionLink>
+          <p>{ro ? "Cele opt Pockets sunt nișe de citit construite direct în peretele bibliotecii. Fiecare are lumină proprie, loc pentru carte și ceai, priză la îndemână și suficientă intimitate cât să te retragi puțin fără să te izolezi de restul locului." : "The eight Pockets are reading niches built directly into the library wall. Each has its own light, room for a book and tea, charging within reach, and enough privacy to tuck yourself away without leaving the room entirely."}</p>
+          <SectionLink href={`/${locale}/space#pockets`}>{ro ? "Vezi cum sunt gândite" : "See how they work"}</SectionLink>
         </div>
-        <PocketWall />
+        <figure className="pg-photo pg-photo-pockets">
+          <Image
+            src="/images/pocket-goat/penultimate/pockets-wall.webp"
+            alt={ro ? "Peretele bibliotecii Pocket Goat cu Pockets integrate între rafturile cu cărți" : "Pocket Goat library wall with Pockets built between the bookshelves"}
+            width={280}
+            height={210}
+            sizes="(max-width: 1050px) 100vw, 64vw"
+            unoptimized
+          />
+          <figcaption>{ro ? "Nu cabine separate, ci mici locuri de citit sculptate chiar în bibliotecă." : "Not separate booths, but small reading places carved into the library itself."}</figcaption>
+        </figure>
       </section>
 
       <section className="quiet-section section-paper">
         <div className="section-heading">
-          <p className="kicker">QUIET COMPANY</p>
+          <p className="kicker">{ro ? "MASA OVALĂ" : "THE OVAL TABLE"}</p>
           <h2>{t.quietTitle}</h2>
-          <p>{t.quietText}</p>
+          <p>{ro ? "Masa mare este într-o zonă separată a încăperii, nu în fața Pocket-urilor. E din lemn masiv, cu detalii de rădăcini lucrate discret în suprafață. Aici poți sta lângă alți oameni fără ca asta să însemne automat că trebuie să vorbești cu ei." : "The large table sits in its own part of the room, not in front of the Pockets. It is solid wood, with subtle root detailing worked into the surface. Here you can sit near other people without that automatically meaning you have to talk."}</p>
         </div>
-        <QuietTable locale={locale} />
+        <div className="quiet-photo-stack">
+          <figure className="pg-photo">
+            <Image
+              src="/images/pocket-goat/penultimate/root-table.webp"
+              alt={ro ? "Masa ovală din lemn masiv Pocket Goat, cu detalii inspirate de rădăcini" : "Pocket Goat solid-wood oval table with root-inspired detailing"}
+              width={280}
+              height={210}
+              sizes="(max-width: 1050px) 100vw, 64vw"
+              unoptimized
+            />
+            <figcaption>{ro ? "Quiet Company sau Open to Conversation se indică discret, fără să transforme masa într-un exercițiu social." : "Quiet Company or Open to Conversation is signalled discreetly, without turning the table into a social exercise."}</figcaption>
+          </figure>
+          <QuietTable locale={locale} />
+        </div>
       </section>
 
       <section className="tea-section section-forest">
