@@ -10,7 +10,8 @@ export function MobileMenu({ locale }: { locale: Locale }) {
         <span>MENU</span><i aria-hidden="true" />
       </summary>
       <nav aria-label={locale === "ro" ? "Navigație mobilă" : "Mobile navigation"}>
-        <Link href={`${base}/space`}>{t.nav.space}</Link>\n        <Link href={`${base}/books`}>{t.nav.books}</Link>
+        <Link href={`${base}/space`}>{t.nav.space}</Link>
+        <Link href={`${base}/books`}>{t.nav.books}</Link>
         <Link href={`${base}/cafe`}>{t.nav.cafe}</Link>
         <Link href={`${base}/culture`}>{t.nav.culture}</Link>
         <Link href={`${base}/cinematic`}>{t.nav.cinematic}</Link>
