@@ -4,7 +4,7 @@ export const isLocale = (value: string): value is Locale => locales.includes(val
 
 export const copy = {
   ro: {
-    nav: { space: "Spațiul", cafe: "Ceai & cafea", culture: "Cultură", cinematic: "Cinematic", community: "Comunitate", visit: "Vizitează" },
+    nav: { space: "Spațiul", books: "Cărți", cafe: "Ceai & cafea", culture: "Cultură", cinematic: "Cinematic", community: "Comunitate", visit: "Vizitează" },
     heroEyebrow: "CĂRȚI · CEAI · POVEȘTI · LINIȘTE · OAMENI",
     heroTitle: "Un loc în care poți să stai în pace.",
     heroText: "Vii cu o carte, cu cineva drag sau pur și simplu cu tine. Bei ceva bun, stai cât vrei și, dacă ai chef, mai prinzi și o seară de film, istorie sau povești.",
@@ -38,7 +38,7 @@ export const copy = {
     footer: "Vino cum ești. Rămâi cât vrei."
   },
   en: {
-    nav: { space: "The Space", cafe: "Tea & Coffee", culture: "Culture", cinematic: "Cinematic", community: "Community", visit: "Visit" },
+    nav: { space: "The Space", books: "Books", cafe: "Tea & Coffee", culture: "Culture", cinematic: "Cinematic", community: "Community", visit: "Visit" },
     heroEyebrow: "BOOKS · TEA · STORIES · QUIET · PEOPLE",
     heroTitle: "A place to settle in.",
     heroText: "Come with a book, with someone you love, or simply by yourself. Have something good, stay as long as you like, and maybe catch an evening of film, history or stories while you’re here.",
