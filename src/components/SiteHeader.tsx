@@ -10,7 +10,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
     <header className="site-header">
       <Link href={`/${locale}`} className="logo-link"><Logo /></Link>
       <nav className="main-nav" aria-label={locale === "ro" ? "Navigație principală" : "Main navigation"}>
-        <Link href={`/${locale}/space`}>{t.nav.space}</Link>
+        <Link href={`/${locale}/space`}>{t.nav.space}</Link>\n        <Link href={`/${locale}/books`}>{t.nav.books}</Link>
         <Link href={`/${locale}/cafe`}>{t.nav.cafe}</Link>
         <Link href={`/${locale}/culture`}>{t.nav.culture}</Link>
         <Link href={`/${locale}/cinematic`}>{t.nav.cinematic}</Link>
