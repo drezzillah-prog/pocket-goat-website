@@ -98,7 +98,7 @@ const groups = {
 
 export function BooksBrowse({ locale }: { locale: Locale }) {
   const data = groups[locale];
-  const [active, setActive] = useState(data[0].id);
+  const [active, setActive] = useState<string>(data[0].id);
   const current = data.find(group => group.id === active) ?? data[0];
 
   return (
