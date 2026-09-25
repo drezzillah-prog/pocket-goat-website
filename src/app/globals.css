@@ -131,3 +131,101 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}::selecti
   .pg-photo figcaption{font-size:12px}
   .quiet-photo-stack .quiet-table,.root-table-layout .quiet-table{min-height:370px}
 }
+
+
+/* Books */
+.books-hero{position:relative;min-height:96svh;display:flex;align-items:flex-end;isolation:isolate;overflow:hidden;padding:150px clamp(24px,7vw,110px) clamp(70px,8vw,110px)}
+.books-hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3}
+.books-hero-shade{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(4,10,7,.92) 0%,rgba(4,10,7,.67) 46%,rgba(4,10,7,.18) 78%),linear-gradient(0deg,rgba(4,10,7,.62),transparent 56%)}
+.books-hero-copy{max-width:850px}
+.books-hero h1{margin:0;max-width:12ch;font-family:var(--serif);font-weight:400;letter-spacing:-.035em;line-height:.96;font-size:clamp(58px,8vw,120px)}
+.books-hero .lede{margin:28px 0 34px;max-width:680px}
+
+.books-intro{padding:clamp(90px,10vw,150px) clamp(24px,8vw,130px);display:grid;grid-template-columns:minmax(280px,.85fr) minmax(0,1.15fr);gap:clamp(50px,9vw,150px);align-items:start}
+.books-intro h2,.books-section-heading h2,.books-rec-copy h2,.books-dobrogea-copy h2,.read-here h2,.books-culture h2{font-family:var(--serif);font-weight:400;letter-spacing:-.025em;line-height:1.01;font-size:clamp(44px,5.5vw,82px);margin:0}
+.books-intro-copy{max-width:700px}
+.books-intro-copy p{font-size:18px;line-height:1.82;color:#405047;margin:0 0 24px}
+
+.genre-ribbon{overflow:hidden;padding:28px 0;border-block:1px solid rgba(209,177,123,.16)}
+.book-rail{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.book-rail-track{width:max-content;display:flex;align-items:center;gap:24px;animation:bookRail 42s linear infinite}
+.book-rail-track span{display:flex;gap:24px;align-items:center;white-space:nowrap;font-family:var(--serif);font-size:clamp(18px,2vw,29px);color:rgba(247,241,229,.78)}
+.book-rail-track i{font-style:normal;color:var(--brass);opacity:.75}
+
+.books-shelves{padding:clamp(100px,11vw,170px) clamp(24px,6vw,96px)}
+.books-section-heading{max-width:920px;margin-bottom:65px}
+.books-section-heading>p:not(.kicker){max-width:720px;font-size:17px;line-height:1.75;color:#405047}
+.shelf-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid rgba(19,32,25,.18);border-left:1px solid rgba(19,32,25,.18)}
+.shelf-card{position:relative;min-height:330px;padding:38px 40px 36px;border-right:1px solid rgba(19,32,25,.18);border-bottom:1px solid rgba(19,32,25,.18);overflow:hidden;transition:background .25s,transform .25s}
+.shelf-card:hover{background:rgba(19,32,25,.035)}
+.shelf-index{font-size:9px;letter-spacing:.18em;color:#8a7455}
+.shelf-card h3{font-family:var(--serif);font-size:clamp(30px,3.4vw,52px);font-weight:400;line-height:1.04;margin:92px 0 16px}
+.shelf-card p{margin:0;max-width:52ch;color:#46544c}
+.shelf-spines{position:absolute;right:28px;top:32px;height:82px;display:flex;align-items:flex-end;gap:4px;opacity:.28;transition:opacity .25s,transform .25s}
+.shelf-card:hover .shelf-spines{opacity:.62;transform:translateY(-4px)}
+.shelf-spines i{display:block;width:13px;height:55px;background:var(--walnut);border-top:2px solid #8b603e}
+.shelf-spines i:nth-child(2){height:72px;background:#274536}.shelf-spines i:nth-child(3){height:63px;background:#6e4649}.shelf-spines i:nth-child(4){height:80px;background:#806747}.shelf-spines i:nth-child(5){height:47px;background:#314d53}
+
+.books-recommendations{padding:clamp(90px,10vw,150px) clamp(24px,6vw,96px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:clamp(50px,7vw,110px);align-items:start}
+.books-rec-photo{position:sticky;top:108px}
+.books-rec-photo img{aspect-ratio:4/3}
+.books-rec-copy>p:not(.kicker){font-size:17px;line-height:1.75;color:rgba(247,241,229,.7)}
+.recommendation-list{margin-top:42px;border-top:1px solid rgba(209,177,123,.19)}
+.recommendation-list article{padding:24px 0;border-bottom:1px solid rgba(209,177,123,.19);display:grid;grid-template-columns:minmax(170px,.55fr) 1fr;gap:24px}
+.recommendation-list h3{font-family:var(--serif);font-weight:400;font-size:24px;margin:0;color:var(--cream)}
+.recommendation-list p{margin:0;color:rgba(247,241,229,.6);font-size:14px;line-height:1.65}
+
+.book-finds-you{padding:clamp(120px,14vw,210px) clamp(24px,12vw,190px);text-align:center}
+.book-finds-you blockquote{max-width:17ch;margin:0 auto 36px;font-family:var(--serif);font-size:clamp(50px,7vw,108px);font-weight:400;line-height:.99}
+.book-finds-you>p:not(.kicker){max-width:710px;margin:0 auto;color:rgba(247,241,229,.62);font-size:18px;line-height:1.8}
+
+.books-dobrogea{padding:clamp(90px,10vw,150px) clamp(24px,6vw,96px);display:grid;grid-template-columns:minmax(300px,.8fr) minmax(0,1.2fr);gap:clamp(55px,8vw,130px);align-items:center}
+.books-dobrogea-copy>p:not(.kicker){font-size:17px;line-height:1.78;color:#425149}
+.dobrogea-topics{display:flex;flex-wrap:wrap;gap:9px;margin:30px 0 12px}
+.dobrogea-topics span{padding:9px 12px;border:1px solid rgba(19,32,25,.22);border-radius:999px;font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:#526158}
+
+.read-here{padding:clamp(100px,11vw,170px) clamp(24px,8vw,130px);display:grid;grid-template-columns:minmax(300px,1fr) minmax(300px,.8fr);gap:8vw;align-items:center}
+.read-here>div:first-child{max-width:760px}
+.read-here>div>p:not(.kicker){max-width:660px;color:rgba(247,241,229,.68);font-size:17px;line-height:1.78}
+.read-here-links{display:flex;gap:28px;flex-wrap:wrap}
+.reading-nook-mini{position:relative;min-height:430px;display:grid;place-items:center}
+.mini-arch{position:relative;width:min(330px,86%);height:390px;border-radius:155px 155px 20px 20px;border:1px solid rgba(209,177,123,.28);background:radial-gradient(circle at 50% 30%,rgba(222,174,99,.18),transparent 38%),#0a1711;box-shadow:inset 0 -50px 70px rgba(0,0,0,.35),0 35px 70px rgba(0,0,0,.25)}
+.mini-arch>span{position:absolute;left:50%;top:56px;width:1px;height:88px;background:linear-gradient(var(--brass2),transparent);box-shadow:0 0 45px 18px rgba(209,177,123,.12)}
+.mini-seat{position:absolute;left:15%;right:15%;bottom:46px;height:100px;border-radius:50px 50px 18px 18px;background:linear-gradient(#284b3b,#173126);box-shadow:0 20px 35px rgba(0,0,0,.36)}
+.mini-books{position:absolute;right:3%;bottom:16%;display:flex;align-items:flex-end;gap:4px;transform:rotate(3deg)}
+.mini-books i{width:13px;height:65px;background:#6f4532}.mini-books i:nth-child(2){height:78px;background:#415546}.mini-books i:nth-child(3){height:58px;background:#7b5558}.mini-books i:nth-child(4){height:83px;background:#705f42}.mini-books i:nth-child(5){height:70px;background:#2c4d54}.mini-books i:nth-child(6){height:51px;background:#80613f}
+
+.books-culture{padding:clamp(110px,12vw,190px) clamp(24px,12vw,190px);text-align:center}
+.books-culture h2{max-width:15ch;margin-inline:auto}
+.books-culture>p:not(.kicker){max-width:730px;margin:26px auto 28px;font-size:17px;line-height:1.8;color:#425149}
+
+@keyframes bookRail{to{transform:translateX(-50%)}}
+
+@media(max-width:1050px){
+  .books-intro,.books-recommendations,.books-dobrogea,.read-here{grid-template-columns:1fr}
+  .books-rec-photo{position:static;max-width:850px}
+  .books-dobrogea-photo{order:-1}
+  .reading-nook-mini{min-height:360px}
+}
+@media(max-width:760px){
+  .books-hero{min-height:88svh;padding:120px 22px 60px}
+  .books-hero h1{font-size:clamp(50px,14vw,76px)}
+  .books-intro,.books-shelves,.books-recommendations,.books-dobrogea,.read-here,.books-culture{padding:78px 22px}
+  .books-intro{gap:32px}
+  .books-intro-copy p{font-size:16px}
+  .shelf-grid{grid-template-columns:1fr}
+  .shelf-card{min-height:285px;padding:30px 26px}
+  .shelf-card h3{margin-top:78px}
+  .books-recommendations{gap:42px}
+  .recommendation-list article{grid-template-columns:1fr;gap:8px}
+  .book-finds-you{padding:100px 22px}
+  .read-here-links{display:block}
+  .read-here-links .section-link{margin-right:18px}
+  .reading-nook-mini{min-height:330px}
+  .mini-arch{height:315px;width:250px}
+  .book-rail-track{animation-duration:30s}
+}
+@media(prefers-reduced-motion:reduce){
+  .book-rail-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center;padding-inline:24px}
+  .book-rail-track span:nth-child(n+17){display:none}
+}
