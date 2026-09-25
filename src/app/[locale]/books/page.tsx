@@ -1,67 +1,32 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BooksBrowse } from "@/components/BooksBrowse";
 import { SectionLink } from "@/components/SectionLink";
 import { resolveLocale } from "@/lib/locale";
-
-const genresRo = [
-  "Literatură contemporană","Clasici","Poezie","Fantasy","Science-fiction","Mystery & crime",
-  "Istorie","Biografii & memorii","Eseu & non-fiction","Filosofie","Artă","Film & cultură",
-  "Travel & place writing","Young adult","Copii","Dobrogea & Constanța"
-];
-const genresEn = [
-  "Contemporary fiction","Classics","Poetry","Fantasy","Science fiction","Mystery & crime",
-  "History","Biography & memoir","Essays & non-fiction","Philosophy","Art","Film & culture",
-  "Travel & place writing","Young adult","Children","Dobrogea & Constanța"
-];
 
 export default async function BooksPage({ params }: { params: Promise<{ locale: string }> }) {
   const locale = resolveLocale((await params).locale);
   const ro = locale === "ro";
-  const genres = ro ? genresRo : genresEn;
-
-  const shelves = ro ? [
-    ["Fiction","Romane contemporane, clasici și povești în care intri pentru zece pagini și rămâi până uiți de oră."],
-    ["Poezie","Pentru serile în care vrei câteva pagini bune, nu neapărat trei sute."],
-    ["Fantasy & speculative","Lumi noi, mituri, magie și ficțiune care împinge puțin marginile realității."],
-    ["Mystery & crime","Pentru cititorii care spun „încă un capitol” și nu se țin niciodată de cuvânt."],
-    ["Science-fiction","Viitoruri posibile, idei mari și întrebări care rămân după ce închizi cartea."],
-    ["Istorie","Istorie mare, istorie locală, istorii trăite și felurile în care trecutul continuă să vorbească."],
-    ["Eseu & non-fiction","Pentru curiozități, obsesii bune și subiecte în care merită să intri mai adânc."],
-    ["Artă · film · cultură","Cărți care îți arată altfel lucrurile pe care credeai că le cunoști."],
-    ["Young adult & copii","Cărți bune, alese serios. Fără ideea că cititorii mici merită mai puțină grijă."],
-    ["Dobrogea & Constanța","Raftul nostru de acasă: mare, port, comunități, arhitectură, memorie și oraș."]
-  ] : [
-    ["Fiction","Contemporary novels, classics and stories you open for ten pages and stay with until you lose track of time."],
-    ["Poetry","For evenings when a handful of good pages is exactly enough."],
-    ["Fantasy & speculative","New worlds, myths, magic and fiction that nudges at the edges of reality."],
-    ["Mystery & crime","For readers who say ‘one more chapter’ and never mean it."],
-    ["Science fiction","Possible futures, big ideas and questions that stay after the book is closed."],
-    ["History","Large histories, local histories, lived histories, and the ways the past keeps speaking."],
-    ["Essays & non-fiction","For curiosities, worthwhile obsessions and subjects worth going deeper into."],
-    ["Art · film · culture","Books that change how familiar things look."],
-    ["Young adult & children","Good books chosen seriously, without treating younger readers as an afterthought."],
-    ["Dobrogea & Constanța","Our home shelf: sea, port, communities, architecture, memory and city."]
-  ];
 
   const recommendationModes = ro ? [
-    ["Ce citim acum","Titluri pe care le avem efectiv deschise pe noptiere, în geantă sau pe masa din spate."],
-    ["Cărți la care ne întoarcem","Nu neapărat noutăți. Doar cărți pe care încă avem chef să le recomandăm."],
-    ["Dacă ți-a plăcut…","Spune-ne o carte pe care ai iubit-o și încercăm să-ți găsim următoarea."],
-    ["Pentru o anumită stare","Ceva scurt, ceva liniștit, ceva întunecat, ceva care să-ți ocupe mintea complet."],
-    ["Descoperiri mici","Titluri care nu au nevoie să fie peste tot ca să merite găsite."],
-    ["De aici","Cărți despre Constanța, Dobrogea, Marea Neagră și oamenii care au trecut pe aici."]
+    ["Ce citim acum","Cărțile pe care le avem chiar acum pe noptieră, în geantă sau pe masa din spate."],
+    ["Cărți la care ne întoarcem","Nu trebuie să fie noutăți. Doar cărți pe care încă avem chef să le punem în mâna cuiva."],
+    ["Dacă ți-a plăcut…","Spune-ne ce carte ai iubit și încercăm să-ți găsim următoarea."],
+    ["Pentru o anumită stare","Ceva scurt, ceva liniștit, ceva întunecat sau ceva care să-ți ocupe mintea complet."],
+    ["Descoperiri mici","Titluri care nu trebuie să fie peste tot ca să merite găsite."],
+    ["De aici","Constanța, Dobrogea, Marea Neagră și oamenii care au trecut pe aici."]
   ] : [
-    ["What we are reading","Books currently open on our nightstands, in our bags or on the back table."],
-    ["Books we return to","Not necessarily new. Just books we still want to put into someone else’s hands."],
-    ["If you loved…","Tell us a book you loved and we will try to find your next one."],
-    ["For a certain mood","Something short, something quiet, something dark, something that takes over your whole attention."],
+    ["What we're reading","Books currently open on our nightstands, in our bags or on the back table."],
+    ["Books we return to","They do not have to be new. Just books we still want to place in someone else's hands."],
+    ["If you loved…","Tell us a book you loved and we'll try to find the next one."],
+    ["For a certain mood","Something short, something quiet, something dark, or something that takes over your whole attention."],
     ["Small discoveries","Books that do not need to be everywhere to be worth finding."],
-    ["From here","Books about Constanța, Dobrogea, the Black Sea and the people who have passed through here."]
+    ["From here","Constanța, Dobrogea, the Black Sea and the people who have passed through here."]
   ];
 
   return (
-    <>
-      <section className="books-hero section-dark">
+    <main className="books-page">
+      <section className="books-hero">
         <Image
           className="books-hero-image"
           src="/images/pocket-goat/books/books-hero.webp"
@@ -74,68 +39,53 @@ export default async function BooksPage({ params }: { params: Promise<{ locale: 
         <div className="books-hero-shade" />
         <div className="books-hero-copy">
           <p className="eyebrow">POCKET GOAT BOOKS</p>
-          <h1>{ro ? "Cărți pentru stat. Și pentru întors încă o pagină." : "Books for staying. And turning one more page."}</h1>
+          <h1>{ro ? "Cărți în care merită să mai stai puțin." : "Books worth lingering over."}</h1>
           <p className="lede">
             {ro
-              ? "Poți intra pentru un ceai și să ajungi, fără să-ți propui, cu o carte în mână. Biblioteca nu e decorul cafenelei. E una dintre cauzele pentru care locul există."
-              : "You can come in for tea and find yourself, without planning to, with a book in your hands. The library is not café décor. It is one of the reasons the place exists."}
+              ? "Poți intra pentru un ceai, să ajungi lângă rafturi și să vezi ce se întâmplă de acolo. Biblioteca nu e decor. E una dintre părțile pentru care există Pocket Goat."
+              : "Come in for tea, wander over to the shelves, and see what follows. The library isn't scenery here; it's part of what Pocket Goat is for."}
           </p>
-          <a href="#rafturi" className="primary-cta">{ro ? "Vezi rafturile" : "See the shelves"}<span>↓</span></a>
+          <a href="#browse-library" className="primary-cta">{ro ? "Răsfoiește biblioteca" : "Browse the library"}<span>↓</span></a>
         </div>
       </section>
 
-      <section className="books-intro section-paper">
+      <section className="books-intro books-forest-panel">
         <div>
-          <p className="kicker">{ro ? "CUM E GÂNDITĂ BIBLIOTECA" : "HOW THE LIBRARY WORKS"}</p>
-          <h2>{ro ? "Nu vrem doar rafturi frumoase." : "We do not just want beautiful shelves."}</h2>
+          <p className="kicker">{ro ? "O BIBLIOTECĂ ÎN CARE SĂ TE PIERZI" : "A LIBRARY TO GET LOST IN"}</p>
+          <h2>
+            {ro
+              ? "Răsfoiește. Răzgândește-te. Ia ceva la care nu te-ai fi gândit."
+              : "Browse slowly. Change your mind. Pick up something unexpected."}
+          </h2>
         </div>
         <div className="books-intro-copy">
           <p>
             {ro
-              ? "Vrem o bibliotecă în care să ai chef să cauți. Să scoți o carte de pe raft pentru că ți-a atras atenția, să întrebi ce mai avem pe același subiect sau să ne spui ce ți-a plăcut și să vedem unde ajungem de acolo."
-              : "We want a library that makes you want to browse. Pull something down because it caught your eye, ask what else we have on the subject, or tell us what you loved and see where we go from there."}
+              ? "Sunt cărți pe care le recunoști, cărți pe care le recomandăm obsesiv, noutăți și descoperiri mai tăcute. Poți scoate una din raft pentru că ți-a plăcut coperta, s-o pui la loc după trei pagini și să alegi alta. Exact pentru asta sunt rafturile."
+              : "There are books you'll recognise, books we keep recommending, new releases and quieter discoveries. Pull one down because the cover caught your eye. Put it back after three pages. Ask us for something stranger. That's what the shelves are for."}
           </p>
           <p>
             {ro
-              ? "Vor fi titluri cunoscute, cărți pe care le iubim noi, apariții noi și lucruri puțin mai greu de întâlnit. Nu încercăm să pretindem că fiecare carte din lume încape aici. Încercăm să facem rafturile suficient de bune încât să merite răsfoite."
-              : "There will be familiar titles, books we love, new releases and things a little harder to stumble across. We are not pretending every book in the world fits here. We are trying to make the shelves good enough to be worth browsing."}
+              ? "Nu încercăm să înghesuim toate cărțile lumii într-o singură încăpere. Vrem o bibliotecă suficient de variată încât să te surprindă și suficient de personală încât să se simtă ca Pocket Goat."
+              : "We're not trying to fit every book in the world into one room. We're building a library with enough range to surprise you and enough character to feel like Pocket Goat."}
           </p>
         </div>
       </section>
 
-      <section className="genre-ribbon section-forest" aria-label={ro ? "Genurile din biblioteca Pocket Goat" : "Genres in the Pocket Goat library"}>
-        <div className="book-rail">
-          <div className="book-rail-track">
-            {[...genres, ...genres].map((genre, i) => (
-              <span key={`${genre}-${i}`} aria-hidden={i >= genres.length}>{genre}<i>·</i></span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="rafturi" className="books-shelves section-paper">
+      <section id="browse-library" className="books-browse-section">
         <div className="books-section-heading">
-          <p className="kicker">{ro ? "RAFTURILE" : "THE SHELVES"}</p>
-          <h2>{ro ? "Găsești câte puțin din aproape toate. Și mult din lucrurile care ne plac." : "A little of almost everything. More of the things we love."}</h2>
+          <p className="kicker">{ro ? "RĂSFOIEȘTE BIBLIOTECA" : "BROWSE THE LIBRARY"}</p>
+          <h2>{ro ? "Nu trebuie să știi dinainte ce cauți." : "Every kind of reader gets a way in."}</h2>
           <p>
             {ro
-              ? "Genurile nu sunt tratate ca niște cutii închise. Rafturile se întâlnesc între ele, se schimbă, iar selecțiile tematice pot apărea și dispărea pe parcursul anului."
-              : "Genres are not treated as sealed boxes. Shelves overlap, change, and thematic selections can appear and disappear throughout the year."}
+              ? "Am grupat biblioteca ca să fie ușor de explorat, nu ca s-o închidem în sertare. Genurile se ating, selecțiile se schimbă, iar unele cărți vor sta foarte bine în mai multe locuri."
+              : "The categories are there to help you wander, not to box the books in. Genres overlap, selections change, and some books will happily belong in more than one place."}
           </p>
         </div>
-        <div className="shelf-grid">
-          {shelves.map(([title, text], i) => (
-            <article className="shelf-card" key={title}>
-              <span className="shelf-index">{String(i + 1).padStart(2, "0")}</span>
-              <div className="shelf-spines" aria-hidden="true"><i/><i/><i/><i/><i/></div>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
+        <BooksBrowse locale={locale} />
       </section>
 
-      <section className="books-recommendations section-forest">
+      <section className="books-recommendations">
         <figure className="pg-photo books-rec-photo">
           <Image
             src="/images/pocket-goat/books/books-recommendations.webp"
@@ -147,11 +97,11 @@ export default async function BooksPage({ params }: { params: Promise<{ locale: 
         </figure>
         <div className="books-rec-copy">
           <p className="kicker">RECOMMENDED BY POCKET GOAT</p>
-          <h2>{ro ? "Ce ți-am pune noi direct în mână." : "What we would put straight into your hands."}</h2>
+          <h2>{ro ? "Cărți pe care chiar ți le-am pune în mână." : "Books we'd actually hand you."}</h2>
           <p>
             {ro
-              ? "Nu vrem un raft de «best sellers» pus pe pilot automat. Recomandările se schimbă des și au un motiv să fie acolo: le citim, le-am iubit, ne-au surprins sau credem că se potrivesc foarte bine unui anumit fel de cititor."
-              : "We do not want an autopilot best-seller shelf. Recommendations change often and have a reason to be there: we are reading them, loved them, were surprised by them, or think they fit a certain kind of reader beautifully."}
+              ? "Nu vrem un perete de bestseller-uri lăsat pe pilot automat. Aici intră cărți pe care le citim, la care ne întoarcem, despre care ne contrazicem sau pe care pur și simplu abia așteptăm să le dăm mai departe."
+              : "No automatic best-seller wall. These are books we're reading, returning to, arguing about, or simply itching to put in someone else's hands."}
           </p>
           <div className="recommendation-list">
             {recommendationModes.map(([title, text]) => (
@@ -161,31 +111,38 @@ export default async function BooksPage({ params }: { params: Promise<{ locale: 
         </div>
       </section>
 
-      <section className="book-finds-you section-ink">
+      <section className="book-finds-you">
         <p className="kicker">{ro ? "FĂRĂ PLAN" : "NO PLAN REQUIRED"}</p>
         <blockquote>
-          {ro ? "Unele cărți le cauți. Pe altele le găsești pentru că ai întins mâna după ele." : "Some books you look for. Others you find because you happened to reach for them."}
+          {ro
+            ? "Unele cărți le cauți. Altele sunt pur și simplu cele spre care întinzi mâna."
+            : "Some books are searched for. Others are simply the one you reach for."}
         </blockquote>
         <p>
           {ro
-            ? "E perfect în regulă să nu știi ce vrei să citești. Poți să răsfoiești, să abandonezi o carte după trei pagini, să iei alta și să rămâi cu ea o oră. Asta face parte din idee."
-            : "It is perfectly fine not to know what you want to read. Browse, abandon a book after three pages, pick up another and stay with it for an hour. That is part of the idea."}
+            ? "Nu trebuie să știi ce vrei înainte să ajungi. Răsfoiește. Răzgândește-te. Citește trei pagini dintr-o carte și o oră din alta."
+            : "You don't need to know what you want before you arrive. Browse. Change your mind. Read three pages of one thing and an hour of another."}
         </p>
       </section>
 
-      <section className="books-dobrogea section-paper">
+      <section className="books-dobrogea">
         <div className="books-dobrogea-copy">
           <p className="kicker">DOBROGEA · CONSTANȚA · BLACK SEA</p>
-          <h2>{ro ? "Un raft care începe chiar de aici." : "A shelf that begins right here."}</h2>
+          <h2>{ro ? "Un raft care începe chiar de aici." : "A shelf rooted here."}</h2>
           <p>
             {ro
-              ? "Adunăm cărți despre Dobrogea, Constanța, Marea Neagră, port, comunități, arhitectură, patrimoniu și memorie. Nu ca un colț turistic, ci ca o parte vie din biblioteca unui loc care există în Constanța."
-              : "We collect books about Dobrogea, Constanța, the Black Sea, the port, communities, architecture, heritage and memory. Not as a tourist corner, but as a living part of a library that exists in Constanța."}
+              ? "Adunăm cărți despre Dobrogea, Constanța, Marea Neagră, port, comunități, arhitectură, patrimoniu și memorie. Nu ca un colț turistic, ci ca o parte firească din biblioteca unui loc care trăiește aici."
+              : "We collect books about Dobrogea, Constanța, the Black Sea, the port, communities, architecture, heritage and memory. Not as a tourist corner, but as a living part of a library rooted in Constanța."}
           </p>
           <div className="dobrogea-topics">
-            {(ro ? ["Istorie locală","Memorii & document","Arhitectură & patrimoniu","Marea Neagră","Literatură legată de loc"] : ["Local history","Memoir & document","Architecture & heritage","Black Sea","Place-based literature"]).map(t => <span key={t}>{t}</span>)}
+            {(ro
+              ? ["Istorie locală","Memorii & document","Arhitectură & patrimoniu","Marea Neagră","Literatură legată de loc"]
+              : ["Local history","Memoir & document","Architecture & heritage","Black Sea","Place-based literature"]
+            ).map(t => <span key={t}>{t}</span>)}
           </div>
-          <SectionLink href={`/${locale}/dobrogea`}>{ro ? "Mai mult despre Dobrogea la Pocket Goat" : "More about Dobrogea at Pocket Goat"}</SectionLink>
+          <SectionLink href={`/${locale}/dobrogea`}>
+            {ro ? "Mai mult despre Dobrogea la Pocket Goat" : "Explore Dobrogea at Pocket Goat"}
+          </SectionLink>
         </div>
         <figure className="pg-photo books-dobrogea-photo">
           <Image
@@ -198,41 +155,48 @@ export default async function BooksPage({ params }: { params: Promise<{ locale: 
         </figure>
       </section>
 
-      <section className="read-here section-forest">
+      <section className="read-here">
         <div>
           <p className="kicker">{ro ? "CITEȘTE AICI" : "READ HERE"}</p>
-          <h2>{ro ? "Cartea nu trebuie să plece nicăieri ca să fie citită." : "The book does not have to go anywhere to be read."}</h2>
+          <h2>{ro ? "Ia o carte. Găsește-ți locul. Mai stai." : "Take a book. Find a place. Stay awhile."}</h2>
           <p>
             {ro
-              ? "Ia-o din raft, găsește-ți un Pocket, o masă mică sau un loc la masa ovală și stai cu ea. Biblioteca și spațiul au fost gândite împreună tocmai pentru asta."
-              : "Take it from the shelf, find a Pocket, a small table or a seat at the oval table and stay with it. The library and the room were designed together for exactly that."}
+              ? "Ia cartea din raft, găsește-ți un Pocket, o masă mică sau un loc la masa ovală și stai cu ea. Biblioteca și spațiul au fost gândite împreună tocmai pentru asta."
+              : "Take a book from the shelf, find a Pocket, a small table or a seat at the oval table, and stay with it. The library and the room were designed together for exactly that."}
           </p>
           <div className="read-here-links">
             <SectionLink href={`/${locale}/space#pockets`}>{ro ? "Vezi The Pockets" : "See The Pockets"}</SectionLink>
-            <SectionLink href={`/${locale}/space`}>{ro ? "Vezi tot spațiul" : "See the whole space"}</SectionLink>
+            <SectionLink href={`/${locale}/space`}>{ro ? "Vezi tot spațiul" : "Explore the space"}</SectionLink>
           </div>
         </div>
-        <div className="reading-nook-mini" aria-hidden="true">
-          <div className="mini-arch"><span/><div className="mini-seat"/></div>
-          <div className="mini-books"><i/><i/><i/><i/><i/><i/></div>
-        </div>
+        <figure className="books-read-photo">
+          <Image
+            src="/images/pocket-goat/penultimate/pocket-detail.webp"
+            alt={ro ? "Un Pocket de lectură integrat în biblioteca Pocket Goat" : "A Pocket reading nook built into the Pocket Goat library"}
+            width={1000}
+            height={750}
+            unoptimized
+          />
+        </figure>
       </section>
 
-      <section className="books-culture section-paper">
+      <section className="books-culture">
         <p className="kicker">{ro ? "DIN RAFT, LA MASĂ" : "FROM SHELF TO TABLE"}</p>
-        <h2>{ro ? "Uneori, o carte devine motivul pentru care ne strângem." : "Sometimes a book becomes the reason we gather."}</h2>
+        <h2>{ro ? "Unele cărți sunt mai bune după ce le discuți." : "Some books are better discussed at a table."}</h2>
         <p>
           {ro
-            ? "Book Clubs, Author’s Table, Quiet Reading Evenings și întâlnirile cu scriitori pornesc tot de aici. Uneori citim separat. Alteori avem chef să vorbim despre ce am citit."
-            : "Book Clubs, Author’s Table, Quiet Reading Evenings and author visits all begin here. Sometimes we read separately. Sometimes we want to talk about what we read."}
+            ? "Book Clubs, Author's Table, Quiet Reading Evenings și întâlnirile cu scriitori pornesc tot de aici. Uneori citim separat. Alteori chiar avem chef să vorbim despre ce-am citit."
+            : "Book Clubs, Author's Table, Quiet Reading Evenings and author visits all begin here. Sometimes we read separately. Sometimes the best part is talking about it afterwards."}
         </p>
-        <Link className="primary-cta dark" href={`/${locale}/culture`}>{ro ? "Vezi programul cultural" : "See the cultural programme"}<span>→</span></Link>
+        <Link className="primary-cta" href={`/${locale}/culture`}>
+          {ro ? "Vezi programul cultural" : "See the cultural programme"}<span>→</span>
+        </Link>
       </section>
 
-      <section className="page-closing section-ink">
-        <p>{ro ? "Vii pentru o carte. E foarte posibil să rămâi pentru încă una." : "Come for one book. There is a fair chance you will stay for another."}</p>
+      <section className="page-closing books-closing">
+        <p>{ro ? "Vii pentru o carte. Pleci cu încă cinci pe listă." : "Come for one book. Leave with five more on your list."}</p>
         <SectionLink href={`/${locale}/contact`}>{ro ? "Găsește-ne" : "Come find us"}</SectionLink>
       </section>
-    </>
+    </main>
   );
 }
