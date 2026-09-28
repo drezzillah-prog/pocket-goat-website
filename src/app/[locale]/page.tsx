@@ -127,19 +127,27 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <section className="culture-section section-paper">
         <div className="section-heading">
-          <p className="kicker">{ro ? "CÂND AVEM CHEF SĂ VORBIM" : "WHEN WE FEEL LIKE TALKING"}</p>
-          <h2>{t.cultureTitle}</h2>
-          <p>{t.cultureText}</p>
+          <p className="kicker">{ro ? "CULTURA PORNEȘTE DE AICI" : "CULTURE BEGINS HERE"}</p>
+          <h2>{ro ? "Dobrogea în centru. Lumea întreagă în jur." : "Dobrogea at the centre. The wider world around it."}</h2>
+          <p>
+            {ro
+              ? "Istoria Dobrogei și a Constanței este firul nostru cultural principal. De aici mergem spre istorie mondială, mituri, legende, cărți, film și seri în română, engleză sau franceză."
+              : "The history of Dobrogea and Constanța is our cultural anchor. From here we move into world history, myths, legends, books, film and evenings in Romanian, English or French."}
+          </p>
         </div>
         <div className="event-strip">
-          {["Pocket Goat Talks","Dobrogea Nights","Author’s Table","Quiet Reading Evenings"].map((e,i)=>
+          {[
+            ["Dobrogea Nights","HISTORY · PLACE"],
+            ["History Café","WORLD HISTORY · QUESTIONS"],
+            ["Myths & Legends","FOLKLORE · CONTEXT"],
+            ["History in Languages","RO · EN · FR"]
+          ].map(([e,meta],i)=>
             <Link key={e} href={`/${locale}/culture`} className="event-card">
-              <span>0{i+1}</span><strong>{e}</strong>
-              <em>{["IDEAS · PEOPLE","HISTORY · PLACE","BOOKS · VOICES","READ · TOGETHER"][i]}</em>
+              <span>0{i+1}</span><strong>{e}</strong><em>{meta}</em>
             </Link>
           )}
         </div>
-        <SectionLink href={`/${locale}/culture`}>{ro ? "Vezi ce se întâmplă aici" : "See what happens here"}</SectionLink>
+        <SectionLink href={`/${locale}/culture`}>{ro ? "Explorează programul cultural" : "Explore the cultural programme"}</SectionLink>
       </section>
 
       <section className="cinematic-section section-cinema">
