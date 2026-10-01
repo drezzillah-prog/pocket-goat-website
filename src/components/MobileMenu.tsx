@@ -13,6 +13,7 @@ export function MobileMenu({ locale }: { locale: Locale }) {
         <Link href={`${base}/space`}>{t.nav.space}</Link>
         <Link href={`${base}/books`}>{t.nav.books}</Link>
         <Link href={`${base}/cafe`}>{t.nav.cafe}</Link>
+        <Link href={`${base}/events`}>{t.nav.events}</Link>
         <Link href={`${base}/culture`}>{t.nav.culture}</Link>
         <Link href={`${base}/cinematic`}>{t.nav.cinematic}</Link>
         <Link href={`${base}/dobrogea`}>Dobrogea</Link>
