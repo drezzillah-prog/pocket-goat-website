@@ -20,7 +20,7 @@ export default async function CulturePage({ params }: { params: Promise<{ locale
               ? "Dobrogea este axa culturală a Pocket Goat. De aici pornim spre istorie, mituri, legende, cărți, film și conversații din alte locuri și alte timpuri — uneori în română, alteori în engleză sau franceză."
               : "Dobrogea is Pocket Goat’s cultural anchor. From here we travel into history, myths, legends, books, film and conversations from other places and times — sometimes in Romanian, sometimes in English or French."}
           </p>
-          <a className="primary-cta" href="#programme">{ro ? "Explorează programul" : "Explore the programme"}<span>↓</span></a>
+          <div className="culture-hero-actions"><a className="primary-cta" href="#programme">{ro ? "Explorează arhitectura" : "Explore the programme"}<span>↓</span></a><Link className="secondary-cta" href={`/${locale}/events`}>{ro ? "Vezi programul / calendarul" : "See What’s On"}<span>↗</span></Link></div>
         </div>
       </section>
 
