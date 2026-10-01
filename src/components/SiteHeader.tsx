@@ -13,6 +13,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
         <Link href={`/${locale}/space`}>{t.nav.space}</Link>
         <Link href={`/${locale}/books`}>{t.nav.books}</Link>
         <Link href={`/${locale}/cafe`}>{t.nav.cafe}</Link>
+        <Link href={`/${locale}/events`}>{t.nav.events}</Link>
         <Link href={`/${locale}/culture`}>{t.nav.culture}</Link>
         <Link href={`/${locale}/cinematic`}>{t.nav.cinematic}</Link>
         <Link href={`/${locale}/community`}>{t.nav.community}</Link>
