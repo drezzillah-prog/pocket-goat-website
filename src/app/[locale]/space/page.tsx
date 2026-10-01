@@ -24,11 +24,11 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           <Image
             src="/images/pocket-goat/penultimate/master.webp"
             alt={ro ? "Imagine largă a interiorului Pocket Goat" : "Wide view of the Pocket Goat interior"}
-            width={280}
-            height={210}
+            width={1600}
+            height={1200}
             sizes="100vw"
             priority
-            unoptimized
+            quality={88}
           />
           <figcaption>
             {ro
@@ -54,10 +54,10 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             <Image
               src="/images/pocket-goat/penultimate/pockets-wall.webp"
               alt={ro ? "Peretele cu cele opt Pockets integrate între rafturi" : "Wall of eight Pockets integrated between bookshelves"}
-              width={280}
-              height={210}
+              width={1600}
+              height={1200}
               sizes="(max-width: 900px) 100vw, 60vw"
-              unoptimized
+              quality={88}
             />
             <figcaption>
               {ro ? "Privite împreună, trebuie să pară parte din aceeași bibliotecă, nu opt decoruri diferite." : "Seen together, they belong to one library rather than eight separate sets."}
@@ -68,10 +68,10 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             <Image
               src="/images/pocket-goat/penultimate/pocket-detail.webp"
               alt={ro ? "Un Pocket văzut de aproape, cu banchetă, lampă și rafturi" : "A Pocket seen close up, with bench, lamp and bookshelves"}
-              width={280}
-              height={210}
+              width={1500}
+              height={1125}
               sizes="(max-width: 900px) 100vw, 40vw"
-              unoptimized
+              quality={88}
             />
             <figcaption>
               {ro ? "Înăuntru: loc de stat bine, nu doar de făcut o fotografie." : "Inside: somewhere genuinely comfortable to stay, not just somewhere to take a photo."}
@@ -96,10 +96,10 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             <Image
               src="/images/pocket-goat/penultimate/root-table.webp"
               alt={ro ? "Masa ovală Pocket Goat din lemn masiv" : "Pocket Goat solid-wood oval table"}
-              width={280}
-              height={210}
+              width={1500}
+              height={1125}
               sizes="(max-width: 1050px) 100vw, 62vw"
-              unoptimized
+              quality={88}
             />
             <figcaption>
               {ro ? "Masa nu blochează Pocket-urile; este o zonă separată a aceleiași încăperi." : "The table does not block the Pockets; it is a separate zone within the same room."}
