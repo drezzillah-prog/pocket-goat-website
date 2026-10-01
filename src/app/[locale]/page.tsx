@@ -142,12 +142,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             ["Myths & Legends","FOLKLORE · CONTEXT"],
             ["History in Languages","RO · EN · FR"]
           ].map(([e,meta],i)=>
-            <Link key={e} href={`/${locale}/culture`} className="event-card">
+            <Link key={e} href={`/${locale}/events`} className="event-card">
               <span>0{i+1}</span><strong>{e}</strong><em>{meta}</em>
             </Link>
           )}
         </div>
-        <SectionLink href={`/${locale}/culture`}>{ro ? "Explorează programul cultural" : "Explore the cultural programme"}</SectionLink>
+        <SectionLink href={`/${locale}/events`}>{ro ? "Vezi programul" : "See what’s on"}</SectionLink>
       </section>
 
       <section className="cinematic-section section-cinema">
