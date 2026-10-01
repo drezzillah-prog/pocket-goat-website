@@ -50,10 +50,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <Image
             src="/images/pocket-goat/penultimate/master.webp"
             alt={ro ? "Interiorul Pocket Goat, cu biblioteca și masa ovală în aceeași încăpere" : "Pocket Goat interior, with the library and oval table in the same room"}
-            width={280}
-            height={210}
+            width={1600}
+            height={1200}
             sizes="100vw"
-            unoptimized
+            quality={88}
           />
           <figcaption>{ro ? "Aceeași încăpere, văzută mai larg: biblioteca, zonele de stat și masa comună au fiecare locul lor." : "The same room from a wider angle: the library, seating areas and communal table each have their own place."}</figcaption>
         </figure>
@@ -70,10 +70,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <Image
             src="/images/pocket-goat/penultimate/pockets-wall.webp"
             alt={ro ? "Peretele bibliotecii Pocket Goat cu Pockets integrate între rafturile cu cărți" : "Pocket Goat library wall with Pockets built between the bookshelves"}
-            width={280}
-            height={210}
+            width={1600}
+            height={1200}
             sizes="(max-width: 1050px) 100vw, 64vw"
-            unoptimized
+            quality={88}
           />
           <figcaption>{ro ? "Nu cabine separate, ci mici locuri de citit sculptate chiar în bibliotecă." : "Not separate booths, but small reading places carved into the library itself."}</figcaption>
         </figure>
@@ -90,10 +90,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <Image
               src="/images/pocket-goat/penultimate/root-table.webp"
               alt={ro ? "Masa ovală din lemn masiv Pocket Goat, cu detalii inspirate de rădăcini" : "Pocket Goat solid-wood oval table with root-inspired detailing"}
-              width={280}
-              height={210}
+              width={1500}
+              height={1125}
               sizes="(max-width: 1050px) 100vw, 64vw"
-              unoptimized
+              quality={88}
             />
             <figcaption>{ro ? "Quiet Company sau Open to Conversation se indică discret, fără să transforme masa într-un exercițiu social." : "Quiet Company or Open to Conversation is signalled discreetly, without turning the table into a social exercise."}</figcaption>
           </figure>
