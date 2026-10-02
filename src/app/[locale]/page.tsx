@@ -45,6 +45,17 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
+      <section className="home-preopening-strip" aria-label={ro ? "Statut Pocket Goat" : "Pocket Goat status"}>
+        <div>
+          <span>{ro ? "PRE-OPENING · CONSTANȚA" : "PRE-OPENING · CONSTANȚA"}</span>
+          <p>{ro ? "Construim programul, testăm formatele și confirmăm spațiul înainte să publicăm promisiuni." : "We are building the programme, testing formats and confirming the space before publishing promises."}</p>
+        </div>
+        <nav>
+          <Link href={`/${locale}/events`}>{ro ? "Program" : "What’s On"} <span>↗</span></Link>
+          <Link href={`/${locale}/contact`}>{ro ? "Planifică vizita" : "Plan your visit"} <span>↗</span></Link>
+        </nav>
+      </section>
+
       <section className="space-glimpse section-dark">
         <figure className="pg-photo pg-photo-wide">
           <Image
@@ -53,7 +64,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             width={1600}
             height={1200}
             sizes="100vw"
-            quality={88}
+            quality={100}
+            unoptimized
           />
           <figcaption>{ro ? "Aceeași încăpere, văzută mai larg: biblioteca, zonele de stat și masa comună au fiecare locul lor." : "The same room from a wider angle: the library, seating areas and communal table each have their own place."}</figcaption>
         </figure>
@@ -73,7 +85,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             width={1600}
             height={1200}
             sizes="(max-width: 1050px) 100vw, 64vw"
-            quality={88}
+            quality={100}
+            unoptimized
           />
           <figcaption>{ro ? "Nu cabine separate, ci mici locuri de citit sculptate chiar în bibliotecă." : "Not separate booths, but small reading places carved into the library itself."}</figcaption>
         </figure>
@@ -93,7 +106,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               width={1500}
               height={1125}
               sizes="(max-width: 1050px) 100vw, 64vw"
-              quality={88}
+              quality={100}
+              unoptimized
             />
             <figcaption>{ro ? "Quiet Company sau Open to Conversation se indică discret, fără să transforme masa într-un exercițiu social." : "Quiet Company or Open to Conversation is signalled discreetly, without turning the table into a social exercise."}</figcaption>
           </figure>
