@@ -137,10 +137,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
         <div className="event-strip">
           {[
-            ["Dobrogea Nights","HISTORY · PLACE"],
-            ["History Café","WORLD HISTORY · QUESTIONS"],
-            ["Myths & Legends","FOLKLORE · CONTEXT"],
-            ["History in Languages","RO · EN · FR"]
+            [ro ? "De aici" : "From here", ro ? "CONSTANȚA · DOBROGEA · MAREA NEAGRĂ" : "CONSTANȚA · DOBROGEA · BLACK SEA"],
+            [ro ? "Istorie, mituri & legende" : "History, myths & legends", ro ? "TRECUT · SURSE · POVESTE" : "PAST · SOURCES · STORY"],
+            [ro ? "Cărți & film" : "Books & film", ro ? "PAGINĂ · ECRAN · CONVERSAȚIE" : "PAGE · SCREEN · CONVERSATION"],
+            [ro ? "Limbi & comunitate" : "Languages & community", "RO · EN · FR"]
           ].map(([e,meta],i)=>
             <Link key={e} href={`/${locale}/events`} className="event-card">
               <span>0{i+1}</span><strong>{e}</strong><em>{meta}</em>
@@ -194,7 +194,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <section className="closing-door section-dark">
         <div className="door-frame"><div className="door-glow"/><span>POCKET GOAT</span><small>CONSTANȚA</small></div>
-        <div><p className="closing-line">{t.footer}</p><Link href={`/${locale}/contact`} className="section-link light">{ro ? "Hai să ne găsești" : "Come find us"}<span>↗</span></Link></div>
+        <div><p className="closing-line">{t.footer}</p><Link href={`/${locale}/contact`} className="section-link light">{ro ? "Planifică vizita" : "Plan your visit"}<span>↗</span></Link></div>
       </section>
     </>
   );
