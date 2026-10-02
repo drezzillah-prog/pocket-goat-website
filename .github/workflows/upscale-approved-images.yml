@@ -7,6 +7,7 @@ on:
     paths:
       - ".github/workflows/upscale-approved-images.yml"
       - "public/images/pocket-goat/penultimate/*.webp"
+      - "public/images/pocket-goat/books/*.webp"
 
 permissions:
   contents: write
@@ -32,16 +33,19 @@ jobs:
           from pathlib import Path
           from PIL import Image, ImageFilter
 
-          root = Path("public/images/pocket-goat/penultimate")
           targets = {
-              "master.webp": 1600,
-              "pockets-wall.webp": 1600,
-              "pocket-detail.webp": 1500,
-              "root-table.webp": 1500,
+              Path("public/images/pocket-goat/penultimate/master.webp"): 1600,
+              Path("public/images/pocket-goat/penultimate/pockets-wall.webp"): 1600,
+              Path("public/images/pocket-goat/penultimate/pocket-detail.webp"): 1500,
+              Path("public/images/pocket-goat/penultimate/root-table.webp"): 1500,
+              Path("public/images/pocket-goat/books/books-hero.webp"): 1600,
+              Path("public/images/pocket-goat/books/books-recommendations.webp"): 1500,
+              Path("public/images/pocket-goat/books/books-dobrogea.webp"): 1500,
+              Path("public/images/pocket-goat/books/book-stack-real.webp"): 1500,
           }
 
-          for name, max_side in targets.items():
-              path = root / name
+          for path, max_side in targets.items():
+              name = path.name
               with Image.open(path) as src:
                   image = src.convert("RGB")
               scale = max_side / max(image.size)
@@ -58,12 +62,12 @@ jobs:
 
       - name: Commit high-resolution assets
         run: |
-          if git diff --quiet -- public/images/pocket-goat/penultimate; then
+          if git diff --quiet -- public/images/pocket-goat/penultimate public/images/pocket-goat/books; then
             echo "No image changes."
             exit 0
           fi
           git config user.name "Pocket Goat CI"
           git config user.email "actions@users.noreply.github.com"
-          git add public/images/pocket-goat/penultimate
+          git add public/images/pocket-goat/penultimate public/images/pocket-goat/books
           git commit -m "assets: upscale approved photography [hires-generated]"
           git push origin HEAD:staging/initial-build
