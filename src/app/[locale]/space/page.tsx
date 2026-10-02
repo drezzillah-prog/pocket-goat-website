@@ -35,6 +35,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             priority
             quality={100}
             unoptimized
+            loading="eager"
           />
           <figcaption>
             {ro
@@ -65,6 +66,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               sizes="(max-width: 900px) 100vw, 60vw"
               quality={100}
               unoptimized
+              loading="eager"
             />
             <figcaption>
               {ro ? "Privite împreună, trebuie să pară parte din aceeași bibliotecă, nu opt decoruri diferite." : "Seen together, they belong to one library rather than eight separate sets."}
@@ -80,6 +82,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               sizes="(max-width: 900px) 100vw, 40vw"
               quality={100}
               unoptimized
+              loading="eager"
             />
             <figcaption>
               {ro ? "Înăuntru: loc de stat bine, nu doar de făcut o fotografie." : "Inside: somewhere genuinely comfortable to stay, not just somewhere to take a photo."}
@@ -109,6 +112,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               sizes="(max-width: 1050px) 100vw, 62vw"
               quality={100}
               unoptimized
+              loading="eager"
             />
             <figcaption>
               {ro ? "Masa nu blochează Pocket-urile; este o zonă separată a aceleiași încăperi." : "The table does not block the Pockets; it is a separate zone within the same room."}
