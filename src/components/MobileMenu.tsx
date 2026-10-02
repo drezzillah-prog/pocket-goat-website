@@ -18,7 +18,7 @@ export function MobileMenu({ locale }: { locale: Locale }) {
         <Link href={`${base}/cinematic`}>{t.nav.cinematic}</Link>
         <Link href={`${base}/dobrogea`}>Dobrogea</Link>
         <Link href={`${base}/community`}>{t.nav.community}</Link>
-        <Link href={`${base}/accessibility`}>Accessibility</Link>
+        <Link href={`${base}/accessibility`}>{locale === "ro" ? "Accesibilitate" : "Accessibility"}</Link>
         <Link href={`${base}/contact`}>{t.nav.visit}</Link>
       </nav>
     </details>
