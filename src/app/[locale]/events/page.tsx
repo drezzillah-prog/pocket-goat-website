@@ -33,8 +33,8 @@ export default async function EventsPage({ params }: { params: Promise<{ locale:
 
       <section className="events-explore">
         <div className="events-heading">
-          <p className="kicker">{ro ? "EXPLOREAZĂ FORMATELE" : "EXPLORE THE FORMATS"}</p>
-          <h2>{ro ? "Filtrează după ce ai chef să descoperi." : "Filter by what you feel like discovering."}</h2>
+          <p className="kicker">{ro ? "TEMATICI & FORMATE" : "THEMES & FORMATS"}</p>
+          <h2>{ro ? "Programul are mai multe fire. Alege de unde vrei să intri." : "The programme has several threads. Choose where you want to enter."}</h2>
           <p>
             {ro
               ? "Dobrogea rămâne axa principală, dar programul merge și spre istorie mondială, mituri, cărți, film, limbi și comunitate."
