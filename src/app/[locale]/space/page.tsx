@@ -17,6 +17,11 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             ? "Poți să te retragi cu o carte, să stai la masa mare printre oameni sau să vii cu prietenii la una dintre mesele mici. Nu există un singur fel în care trebuie folosit locul."
             : "You can tuck yourself away with a book, sit at the large table among people, or come with friends to one of the smaller tables. There is no single way the room is meant to be used."}
         </p>
+        <nav className="space-hero-actions" aria-label={ro ? "Explorează spațiul" : "Explore the space"}>
+          <a href="#pockets">{ro ? "The Pockets" : "The Pockets"} <span>↓</span></a>
+          <a href="#oval-table">{ro ? "Masa ovală" : "The oval table"} <span>↓</span></a>
+          <a href={`/${locale}/accessibility`}>{ro ? "Accesibilitate" : "Accessibility"} <span>↗</span></a>
+        </nav>
       </section>
 
       <section className="space-master section-paper">
@@ -28,7 +33,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             height={1200}
             sizes="100vw"
             priority
-            quality={88}
+            quality={100}
+            unoptimized
           />
           <figcaption>
             {ro
@@ -57,7 +63,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               width={1600}
               height={1200}
               sizes="(max-width: 900px) 100vw, 60vw"
-              quality={88}
+              quality={100}
+              unoptimized
             />
             <figcaption>
               {ro ? "Privite împreună, trebuie să pară parte din aceeași bibliotecă, nu opt decoruri diferite." : "Seen together, they belong to one library rather than eight separate sets."}
@@ -71,7 +78,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               width={1500}
               height={1125}
               sizes="(max-width: 900px) 100vw, 40vw"
-              quality={88}
+              quality={100}
+              unoptimized
             />
             <figcaption>
               {ro ? "Înăuntru: loc de stat bine, nu doar de făcut o fotografie." : "Inside: somewhere genuinely comfortable to stay, not just somewhere to take a photo."}
@@ -80,7 +88,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
-      <section className="space-feature root-table-feature section-paper">
+      <section id="oval-table" className="space-feature root-table-feature section-paper">
         <div className="section-heading">
           <p className="kicker">{ro ? "MASA OVALĂ" : "THE OVAL TABLE"}</p>
           <h2>{ro ? "Pentru când vrei să stai printre oameni." : "For when you want to be around people."}</h2>
@@ -99,7 +107,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               width={1500}
               height={1125}
               sizes="(max-width: 1050px) 100vw, 62vw"
-              quality={88}
+              quality={100}
+              unoptimized
             />
             <figcaption>
               {ro ? "Masa nu blochează Pocket-urile; este o zonă separată a aceleiași încăperi." : "The table does not block the Pockets; it is a separate zone within the same room."}
@@ -107,6 +116,19 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           </figure>
           <QuietTable locale={locale} />
         </div>
+      </section>
+
+      <section className="space-principles section-forest">
+        <div className="space-principles-heading">
+          <p className="kicker">{ro ? "UN LOC CARE NU-ȚI SPUNE CUM SĂ-L FOLOSEȘTI" : "A ROOM THAT DOESN’T TELL YOU HOW TO USE IT"}</p>
+          <h2>{ro ? "Aproape de oameni nu trebuie să însemne disponibil pentru oameni." : "Being near people does not have to mean being available to people."}</h2>
+        </div>
+        <div className="space-principles-grid">
+          <article><span>01</span><h3>{ro ? "Retragere" : "Retreat"}</h3><p>{ro ? "Pocket-urile îți dau un loc clar al tău, fără să te scoată din bibliotecă." : "The Pockets give you a place that is clearly yours without removing you from the library."}</p></article>
+          <article><span>02</span><h3>{ro ? "Companie liniștită" : "Quiet company"}</h3><p>{ro ? "Masa comună lasă oamenii să fie împreună fără să transforme apropierea în obligație." : "The communal table lets people be together without turning proximity into obligation."}</p></article>
+          <article><span>03</span><h3>{ro ? "Alegere" : "Choice"}</h3><p>{ro ? "Mese mici, lumină diferită și niveluri diferite de expunere îți lasă loc să alegi ce ți se potrivește în ziua respectivă." : "Smaller tables, different lighting and different levels of exposure let you choose what fits that particular day."}</p></article>
+        </div>
+        <SectionLink href={`/${locale}/accessibility`}>{ro ? "Cum gândim accesibilitatea" : "How we approach accessibility"}</SectionLink>
       </section>
 
       <section className="page-closing section-ink">
