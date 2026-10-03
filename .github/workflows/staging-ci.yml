@@ -124,6 +124,11 @@ jobs:
             1440 1000
 
           node scripts/capture-full.mjs \
+            http://127.0.0.1:3000/ro \
+            qa-artifacts/home-ro-mobile-full.png \
+            390 844
+
+          node scripts/capture-full.mjs \
             http://127.0.0.1:3000/ro/space \
             qa-artifacts/space-ro-mobile-full.png \
             390 844
