@@ -870,3 +870,38 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}::selecti
     width:100%;
   }
 }
+
+
+/* Mobile visual QA — Home / Space / Books */
+@media(max-width:760px){
+  .hero{
+    min-height:88svh;
+    padding-top:104px;
+    padding-bottom:58px;
+  }
+
+  .space-hero-actions{
+    display:grid;
+    grid-template-columns:max-content max-content;
+    column-gap:20px;
+    row-gap:6px;
+    width:max-content;
+    max-width:100%;
+  }
+  .space-hero-actions a:last-child{
+    grid-column:1/-1;
+    justify-self:start;
+  }
+
+  .books-hero-shade{
+    background:
+      linear-gradient(90deg,rgba(4,10,7,.96) 0%,rgba(4,10,7,.76) 56%,rgba(4,10,7,.34) 100%),
+      linear-gradient(0deg,rgba(4,10,7,.82) 0%,rgba(4,10,7,.30) 58%,rgba(4,10,7,.14) 100%);
+  }
+  .books-browser-tabs{
+    scroll-snap-type:x proximity;
+  }
+  .books-browser-tabs button{
+    scroll-snap-align:start;
+  }
+}
