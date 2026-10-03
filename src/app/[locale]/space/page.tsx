@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           <h2>{ro ? "Opt nișe în bibliotecă. Nu opt cabine." : "Eight niches in the library. Not eight booths."}</h2>
           <p>
             {ro
-              ? "Pocket-urile sunt construite direct în peretele cu cărți. Au laterale drepte, arcadă doar sus, banchetă din catifea, lumină de citit, o suprafață mică pentru cană și carte și charging discret. Sunt suficient de adânci încât să te simți retras, dar rămâi tot în bibliotecă."
+              ? "Pocket-urile sunt construite direct în peretele cu cărți. Au laterale drepte, arcadă doar sus, banchetă din catifea, lumină de citit, o suprafață mică pentru cană și carte și o priză la îndemână. Sunt suficient de adânci încât să te simți retras, dar rămâi tot în bibliotecă."
               : "The Pockets are built directly into the book wall. They have straight sides, an arch only at the top, velvet seating, a reading light, a small surface for a cup and book, and discreet charging. They are deep enough to feel private while still being part of the library."}
           </p>
         </div>
