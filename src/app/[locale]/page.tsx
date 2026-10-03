@@ -161,7 +161,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </Link>
           )}
         </div>
-        <SectionLink href={`/${locale}/events`}>{ro ? "Vezi programul" : "See what’s on"}</SectionLink>
+        <div className="culture-actions">
+          <SectionLink href={`/${locale}/events`}>{ro ? "Vezi programul" : "See what’s on"}</SectionLink>
+          <SectionLink href={`/${locale}/culture`}>{ro ? "Cum construim programul" : "How the programme works"}</SectionLink>
+        </div>
       </section>
 
       <section className="cinematic-section section-cinema">
