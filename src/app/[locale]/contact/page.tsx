@@ -18,7 +18,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           </p>
           <div className="visit-status">
             <span>{ro ? "STATUT" : "STATUS"}</span>
-            <strong>{ro ? "PRE-OPENING · SPAȚIU ÎN CURS DE CONFIRMARE" : "PRE-OPENING · SPACE TO BE CONFIRMED"}</strong>
+            <strong>{ro ? "ÎNAINTE DE DESCHIDERE · SPAȚIU ÎN CURS DE CONFIRMARE" : "PRE-OPENING · SPACE TO BE CONFIRMED"}</strong>
           </div>
         </div>
       </section>
@@ -46,7 +46,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             <span>03</span>
             <p className="kicker">{ro ? "ACCES" : "ACCESS"}</p>
             <h3>{ro ? "Date reale înainte de deschidere" : "Real facts before opening"}</h3>
-            <p>{ro ? "Intrare, praguri, traseu, toaletă, seating și orice limitare reală vor fi documentate clar." : "Entrance, thresholds, route, toilet, seating and any real limitation will be documented clearly."}</p>
+            <p>{ro ? "Intrare, praguri, traseu, toaletă, locuri de stat și orice limitare reală vor fi documentate clar." : "Entrance, thresholds, route, toilet, seating and any real limitation will be documented clearly."}</p>
             <Link href={`/${locale}/accessibility`}>{ro ? "Accesibilitate" : "Accessibility"} <span>↗</span></Link>
           </article>
           <article>
