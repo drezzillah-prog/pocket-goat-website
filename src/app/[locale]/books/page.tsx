@@ -31,8 +31,8 @@ export default async function BooksPage({ params }: { params: Promise<{ locale: 
           className="books-hero-image"
           src="/images/pocket-goat/books/books-hero.webp"
           alt={ro ? "Biblioteca Pocket Goat, cu rafturi înalte, plante și lumină caldă" : "Pocket Goat library with tall shelves, plants and warm light"}
-          width={1448}
-          height={1086}
+          width={1600}
+          height={1200}
           priority
           quality={100}
           unoptimized
@@ -91,8 +91,8 @@ export default async function BooksPage({ params }: { params: Promise<{ locale: 
           <Image
             src="/images/pocket-goat/books/books-recommendations.webp"
             alt={ro ? "Un raft de recomandări Pocket Goat" : "A Pocket Goat recommendations shelf"}
-            width={1448}
-            height={1086}
+            width={1500}
+            height={1125}
             quality={100}
             unoptimized
           />
@@ -150,8 +150,8 @@ export default async function BooksPage({ params }: { params: Promise<{ locale: 
           <Image
             src="/images/pocket-goat/books/books-dobrogea.webp"
             alt={ro ? "Masă cu hărți și cărți despre Dobrogea și Constanța" : "Table with maps and books about Dobrogea and Constanța"}
-            width={1448}
-            height={1086}
+            width={1500}
+            height={1125}
             quality={100}
             unoptimized
           />
@@ -176,8 +176,8 @@ export default async function BooksPage({ params }: { params: Promise<{ locale: 
           <Image
             src="/images/pocket-goat/penultimate/pocket-detail.webp"
             alt={ro ? "Un Pocket de lectură integrat în biblioteca Pocket Goat" : "A Pocket reading nook built into the Pocket Goat library"}
-            width={1448}
-            height={1086}
+            width={1500}
+            height={1125}
             quality={100}
             unoptimized
           />
