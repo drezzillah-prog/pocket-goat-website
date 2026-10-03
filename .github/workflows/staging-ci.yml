@@ -123,6 +123,16 @@ jobs:
             qa-artifacts/books-ro-full.png \
             1440 1000
 
+          node scripts/capture-full.mjs \
+            http://127.0.0.1:3000/ro/space \
+            qa-artifacts/space-ro-mobile-full.png \
+            390 844
+
+          node scripts/capture-full.mjs \
+            http://127.0.0.1:3000/ro/books \
+            qa-artifacts/books-ro-mobile-full.png \
+            390 844
+
           kill "$CHROME_PID" || true
           cp /tmp/pocket-goat-next.log qa-artifacts/next-server.log
           cp /tmp/pocket-goat-chrome.log qa-artifacts/chrome-qa.log
