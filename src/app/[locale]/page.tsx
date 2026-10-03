@@ -47,7 +47,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <section className="home-preopening-strip" aria-label={ro ? "Statut Pocket Goat" : "Pocket Goat status"}>
         <div>
-          <span>{ro ? "PRE-OPENING · CONSTANȚA" : "PRE-OPENING · CONSTANȚA"}</span>
+          <span>{ro ? "ÎNAINTE DE DESCHIDERE · CONSTANȚA" : "PRE-OPENING · CONSTANȚA"}</span>
           <p>{ro ? "Construim programul, testăm formatele și confirmăm spațiul înainte să publicăm promisiuni." : "We are building the programme, testing formats and confirming the space before publishing promises."}</p>
         </div>
         <nav>
