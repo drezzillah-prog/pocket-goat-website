@@ -934,3 +934,10 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}::selecti
   .books-hero-image{object-position:58% center}
   .books-rec-photo img,.books-dobrogea-photo img,.books-read-photo img{aspect-ratio:4/3}
 }
+
+
+/* QA finishing touches */
+#pockets,#oval-table,#browse-library{scroll-margin-top:92px}
+@media(max-width:620px){
+  .space-hero-index{display:none}
+}
