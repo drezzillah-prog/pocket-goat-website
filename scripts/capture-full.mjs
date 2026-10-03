@@ -73,6 +73,22 @@ await send("Runtime.evaluate", {
   awaitPromise: true
 });
 
+await send("Runtime.evaluate", {
+  expression: `(async () => {
+    const step = Math.max(420, Math.floor(window.innerHeight * 0.75));
+    const max = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    for (let y = 0; y < max; y += step) {
+      window.scrollTo(0, y);
+      await new Promise(resolve => setTimeout(resolve, 90));
+    }
+    window.scrollTo(0, max);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    window.scrollTo(0, 0);
+    await new Promise(resolve => setTimeout(resolve, 250));
+  })()`,
+  awaitPromise: true
+});
+
 const metrics = await send("Page.getLayoutMetrics");
 const content = metrics.cssContentSize ?? metrics.contentSize;
 const screenshot = await send("Page.captureScreenshot", {
