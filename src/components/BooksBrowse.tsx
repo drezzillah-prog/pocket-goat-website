@@ -132,8 +132,8 @@ export function BooksBrowse({ locale }: { locale: Locale }) {
           <Image
             src="/images/pocket-goat/books/book-stack-real.webp"
             alt={locale === "ro" ? "Teanc de cărți reale din domenii diferite" : "A stack of real books from different subjects"}
-            width={1448}
-            height={1086}
+            width={1500}
+            height={1125}
             sizes="(max-width: 900px) 100vw, 38vw"
             unoptimized
           />
