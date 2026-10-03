@@ -17,6 +17,11 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             ? "Poți să te retragi cu o carte, să stai la masa mare printre oameni sau să vii cu prietenii la una dintre mesele mici. Nu există un singur fel în care trebuie folosit locul."
             : "You can tuck yourself away with a book, sit at the large table among people, or come with friends to one of the smaller tables. There is no single way the room is meant to be used."}
         </p>
+        <aside className="space-hero-index" aria-label={ro ? "Pe scurt" : "At a glance"}>
+          <div><span>08</span><small>{ro ? "POCKET-URI DE LECTURĂ" : "READING POCKETS"}</small></div>
+          <div><span>01</span><small>{ro ? "MASĂ OVALĂ COMUNĂ" : "COMMUNAL OVAL TABLE"}</small></div>
+          <div><span>03</span><small>{ro ? "MODURI DE A STA" : "WAYS TO SETTLE IN"}</small></div>
+        </aside>
         <nav className="space-hero-actions" aria-label={ro ? "Explorează spațiul" : "Explore the space"}>
           <a href="#pockets">{ro ? "The Pockets" : "The Pockets"} <span>↓</span></a>
           <a href="#oval-table">{ro ? "Masa ovală" : "The oval table"} <span>↓</span></a>
