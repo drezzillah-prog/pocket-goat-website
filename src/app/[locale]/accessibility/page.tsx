@@ -57,7 +57,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
       <section className="access-digital">
         <div className="access-digital-copy">
-          <p className="kicker">{ro ? "WEBSITE" : "WEBSITE"}</p>
+          <p className="kicker">{ro ? "SITE" : "WEBSITE"}</p>
           <h2>{ro ? "Accesibilitatea digitală face parte din construcție." : "Digital accessibility is part of the build."}</h2>
           <p>
             {ro
