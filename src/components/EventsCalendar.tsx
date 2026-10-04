@@ -84,12 +84,9 @@ export function EventsCalendar({ locale }: { locale: Locale }) {
     <div className="events-browser">
       <section className="events-thematic-shell" aria-labelledby="events-thematic-title">
         <div className="events-thematic-head">
-          <div>
-            <p className="kicker">{locale === "ro" ? "TEMATICI" : "THEMES"}</p>
-            <h3 id="events-thematic-title">
-              {locale === "ro" ? "Alege firul care te trage de mânecă." : "Choose the thread that pulls you in."}
-            </h3>
-          </div>
+          <p id="events-thematic-title" className="events-theme-instruction">
+            {locale === "ro" ? "Alege o tematică" : "Choose a theme"}
+          </p>
           <button
             type="button"
             className={"events-all-button " + (category === "all" ? "active" : "")}
