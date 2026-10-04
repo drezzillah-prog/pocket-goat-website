@@ -1139,3 +1139,34 @@ html,body,.site-shell{max-width:100%;overflow-x:clip}
   .quiet-table .mode-note{max-width:none;font-size:12px}
   .quiet-photo-stack .quiet-table,.root-table-layout .quiet-table{min-height:0}
 }
+
+
+/* Events QA — one clear thematic hierarchy */
+.events-thematic-head{
+  align-items:center;
+  padding:18px 0;
+  gap:24px;
+}
+.events-theme-instruction{
+  margin:0;
+  font-size:9px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:700;
+  color:rgba(209,177,123,.76);
+}
+@media(max-width:760px){
+  .events-thematic-head{
+    grid-template-columns:1fr auto;
+    align-items:center;
+    padding:16px 0;
+  }
+  .events-all-button{justify-self:end}
+}
+@media(max-width:520px){
+  .events-thematic-head{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .events-all-button{justify-self:start}
+}
