@@ -952,3 +952,190 @@ html,body,.site-shell{max-width:100%;overflow-x:clip}
   .books-stack-photo{padding:16px}
   .books-browser-panel{padding-left:20px;padding-right:20px}
 }
+
+
+/* Quiet Table — editorial seat-signal detail */
+.quiet-table{
+  position:relative;
+  min-height:360px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  align-content:start;
+  gap:24px;
+  padding:28px;
+  overflow:hidden;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 80% 18%,rgba(208,170,107,.08),transparent 26%),
+    linear-gradient(145deg,#0b241a,#071711 72%);
+  border:1px solid rgba(208,170,107,.24);
+  box-shadow:0 28px 60px rgba(28,22,15,.16);
+}
+.quiet-table:before{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border:1px solid rgba(208,170,107,.08);
+  pointer-events:none;
+}
+.quiet-table-heading{
+  position:relative;
+  z-index:2;
+  display:flex;
+  justify-content:space-between;
+  gap:22px;
+  align-items:baseline;
+  padding-bottom:16px;
+  border-bottom:1px solid rgba(208,170,107,.14);
+}
+.quiet-table-heading span{
+  font-size:8px;
+  letter-spacing:.18em;
+  color:var(--brass2);
+}
+.quiet-table-heading p{
+  margin:0;
+  color:rgba(247,241,229,.46);
+  font-family:var(--serif);
+  font-size:13px;
+  font-style:italic;
+}
+
+.table-plan{
+  position:relative;
+  z-index:1;
+  width:min(600px,94%);
+  min-height:165px;
+  margin:0 auto;
+  display:grid;
+  place-items:center;
+}
+.table-plan-oval{
+  position:relative;
+  width:78%;
+  height:112px;
+  border-radius:50%;
+  background:
+    repeating-linear-gradient(8deg,rgba(210,164,104,.028) 0 1px,transparent 1px 12px),
+    linear-gradient(100deg,#2a1812,#4a2d20 48%,#24140f);
+  border:1px solid rgba(208,170,107,.42);
+  box-shadow:
+    0 20px 34px rgba(0,0,0,.25),
+    inset 0 1px rgba(238,204,151,.08);
+}
+.table-plan-oval:after{
+  content:"";
+  position:absolute;
+  inset:9px 16px;
+  border-radius:50%;
+  border:1px solid rgba(208,170,107,.08);
+}
+.table-root-line{
+  position:absolute;
+  height:1px;
+  transform-origin:left;
+  background:linear-gradient(90deg,transparent,rgba(208,170,107,.34),transparent);
+}
+.table-root-line.r1{width:36%;left:22%;top:47%;transform:rotate(9deg)}
+.table-root-line.r2{width:28%;left:43%;top:55%;transform:rotate(-18deg)}
+.table-root-line.r3{width:20%;left:35%;top:39%;transform:rotate(24deg)}
+.table-inlay{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  font-size:6px;
+  letter-spacing:.22em;
+  color:rgba(208,170,107,.45);
+}
+.plan-seat{
+  position:absolute;
+  width:24px;
+  height:38px;
+  border:1px solid rgba(208,170,107,.18);
+  border-radius:8px 8px 5px 5px;
+  background:#173126;
+  box-shadow:0 7px 12px rgba(0,0,0,.16);
+}
+.plan-seat.s1{left:9%;top:28%;transform:rotate(-26deg)}
+.plan-seat.s2{left:9%;bottom:18%;transform:rotate(27deg)}
+.plan-seat.s3{right:9%;top:28%;transform:rotate(26deg)}
+.plan-seat.s4{right:9%;bottom:18%;transform:rotate(-27deg)}
+.plan-seat.s5{left:48%;top:-2%;transform:rotate(90deg)}
+.plan-seat.s6{left:48%;bottom:-2%;transform:rotate(90deg)}
+
+.quiet-table .table-controls{
+  position:relative;
+  top:auto;
+  z-index:2;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  backdrop-filter:none;
+}
+.quiet-table .table-controls button{
+  min-height:66px;
+  display:grid;
+  align-content:center;
+  gap:5px;
+  padding:12px 14px;
+  border-radius:0;
+  border:1px solid rgba(208,170,107,.16);
+  background:rgba(3,13,9,.42);
+  color:rgba(247,241,229,.66);
+  font-size:8px;
+  line-height:1.15;
+  letter-spacing:.11em;
+  text-align:left;
+  cursor:pointer;
+  transition:background .2s,border-color .2s,color .2s;
+}
+.quiet-table .table-controls button small{
+  font-size:6px;
+  letter-spacing:.15em;
+  color:rgba(208,170,107,.56);
+}
+.quiet-table .table-controls button:hover{
+  border-color:rgba(208,170,107,.4);
+  color:var(--cream);
+}
+.quiet-table .table-controls button.active{
+  color:#07110d;
+  background:linear-gradient(180deg,#d0aa6b,#b88c4e);
+  border-color:#d0aa6b;
+  box-shadow:none;
+}
+.quiet-table .table-controls button.active small{color:rgba(7,17,13,.62)}
+.quiet-table.open .plan-seat{box-shadow:0 7px 12px rgba(0,0,0,.16),0 0 18px rgba(208,170,107,.14)}
+.quiet-table .mode-note{
+  position:relative;
+  bottom:auto;
+  z-index:2;
+  margin:0;
+  padding-top:2px;
+  color:rgba(247,241,229,.52);
+  font-family:var(--serif);
+  font-size:13px;
+  font-style:italic;
+  text-align:center;
+}
+.quiet-photo-stack .quiet-table{min-height:360px}
+.root-table-layout .quiet-table{min-height:390px}
+
+@media(max-width:760px){
+  .quiet-table{min-height:0;padding:22px;gap:20px}
+  .quiet-table-heading{display:grid;gap:7px}
+  .quiet-table-heading p{font-size:12px}
+  .table-plan{min-height:145px;width:100%}
+  .table-plan-oval{height:92px}
+  .plan-seat{width:20px;height:32px}
+  .quiet-table .table-controls{grid-template-columns:1fr}
+  .quiet-table .table-controls button{min-height:58px}
+  .quiet-table .mode-note{max-width:none;font-size:12px}
+  .quiet-photo-stack .quiet-table,.root-table-layout .quiet-table{min-height:0}
+}
