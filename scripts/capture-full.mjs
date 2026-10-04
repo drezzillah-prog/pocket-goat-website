@@ -84,7 +84,10 @@ await send("Runtime.evaluate", {
     window.scrollTo(0, max);
     await new Promise(resolve => setTimeout(resolve, 500));
     window.scrollTo(0, 0);
-    await new Promise(resolve => setTimeout(resolve, 250));
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    await new Promise(resolve => setTimeout(resolve, 350));
   })()`,
   awaitPromise: true
 });
