@@ -1170,3 +1170,51 @@ html,body,.site-shell{max-width:100%;overflow-x:clip}
   }
   .events-all-button{justify-self:start}
 }
+
+
+/* Final visual QA — heading rhythm and compact-phone resilience */
+.hero h1,
+.subhero h1,
+.books-hero h1,
+.section-heading h2,
+.welcome-copy h2,
+.space-principles-heading h2,
+.books-intro h2,
+.books-section-heading h2,
+.books-rec-copy h2,
+.books-dobrogea-copy h2,
+.read-here h2,
+.books-culture h2,
+.book-finds-you blockquote,
+.manifesto-section blockquote,
+.community-section h2,
+.closing-line{
+  text-wrap:balance;
+}
+.lede,
+.section-heading>p:not(.kicker),
+.welcome-copy>p,
+.books-intro-copy p,
+.books-section-heading>p:not(.kicker),
+.books-rec-copy>p:not(.kicker),
+.books-dobrogea-copy>p:not(.kicker),
+.read-here>div>p:not(.kicker),
+.books-culture>p:not(.kicker){
+  text-wrap:pretty;
+}
+@media(max-width:620px){
+  .hero-copy,.subhero>*:not(.space-hero-index){max-width:100%}
+  .hero h1,.subhero h1,.books-hero h1{letter-spacing:-.035em}
+  .space-hero-actions{row-gap:12px}
+  .space-hero-actions a{min-height:30px}
+  .event-card strong{line-height:1.08}
+  .page-closing{align-items:flex-start}
+}
+@media(max-width:390px){
+  .hero h1{font-size:clamp(50px,14.2vw,62px)}
+  .subhero h1{font-size:clamp(46px,13.2vw,58px)}
+  .books-hero h1{font-size:clamp(46px,13.2vw,58px)}
+  .books-browser-tabs button{padding-inline:18px}
+  .genre-chips{gap:7px}
+  .genre-chips span{padding:9px 11px}
+}
