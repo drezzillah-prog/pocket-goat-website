@@ -1218,3 +1218,24 @@ html,body,.site-shell{max-width:100%;overflow-x:clip}
   .genre-chips{gap:7px}
   .genre-chips span{padding:9px 11px}
 }
+
+
+/* Site-wide editorial line-breaking consistency */
+.visit-hero h1,.visit-section-heading h2,.visit-expect h2,.visit-contact h2,.visit-newsletter h2,
+.access-hero h1,.access-heading h2,.access-choice h2,.access-digital h2,.access-honesty h2,
+.cafe-hero h1,.cafe-section-heading h2,.cafe-coffee h2,.hard-day-tea-page h2,
+.culture-hero h1,.culture-principle h2,.culture-section-heading h2,.culture-languages h2,.culture-architecture h3,
+.cinematic-hero h1,.cinematic-heading h2,.cinematic-rights h2,.cinematic-bridge h2,
+.dobrogea-hero h1,.dobrogea-strands-heading h2,.dobrogea-not-theme-park h2,.dobrogea-outward h2,
+.community-hero h1,.community-heading h2,.community-table h2,.community-boundary h2,.community-culture-bridge h2{
+  text-wrap:balance;
+}
+.visit-hero .lede,.access-hero .lede,.cafe-hero .lede,.culture-hero .lede,.cinematic-hero .lede,.dobrogea-hero .lede,.community-hero .lede{
+  text-wrap:pretty;
+}
+@media(max-width:390px){
+  .visit-hero h1,.access-hero h1,.cafe-hero h1,.culture-hero h1,.cinematic-hero h1,.dobrogea-hero h1,.community-hero h1{
+    font-size:clamp(46px,13vw,58px);
+  }
+  .visit-practical-grid article,.access-fact-grid article{padding:26px 22px}
+}
