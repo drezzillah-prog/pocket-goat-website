@@ -199,7 +199,7 @@ export default async function BooksPage({ params }: { params: Promise<{ locale: 
 
       <section className="page-closing books-closing">
         <p>{ro ? "Vii pentru o carte. Pleci cu încă cinci pe listă." : "Come for one book. Leave with five more on your list."}</p>
-        <SectionLink href={`/${locale}/contact`}>{ro ? "Găsește-ne" : "Come find us"}</SectionLink>
+        <SectionLink href={`/${locale}/contact`}>{ro ? "Planifică vizita" : "Plan your visit"}</SectionLink>
       </section>
     </main>
   );
