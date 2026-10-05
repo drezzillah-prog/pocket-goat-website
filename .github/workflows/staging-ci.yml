@@ -96,6 +96,23 @@ jobs:
             --screenshot=qa-artifacts/books-ro-mobile.png \
             http://127.0.0.1:3000/ro/books
 
+          "$BROWSER" --headless --no-sandbox --disable-gpu --hide-scrollbars --virtual-time-budget=1600 \
+            --window-size=1440,1100 \
+            --screenshot=qa-artifacts/visit-ro-desktop.png \
+            http://127.0.0.1:3000/ro/contact
+          "$BROWSER" --headless --no-sandbox --disable-gpu --hide-scrollbars --virtual-time-budget=1600 \
+            --window-size=390,844 \
+            --screenshot=qa-artifacts/visit-ro-mobile.png \
+            http://127.0.0.1:3000/ro/contact
+          "$BROWSER" --headless --no-sandbox --disable-gpu --hide-scrollbars --virtual-time-budget=1600 \
+            --window-size=1440,1100 \
+            --screenshot=qa-artifacts/accessibility-ro-desktop.png \
+            http://127.0.0.1:3000/ro/accessibility
+          "$BROWSER" --headless --no-sandbox --disable-gpu --hide-scrollbars --virtual-time-budget=1600 \
+            --window-size=390,844 \
+            --screenshot=qa-artifacts/accessibility-ro-mobile.png \
+            http://127.0.0.1:3000/ro/accessibility
+
           "$BROWSER" --headless --no-sandbox --disable-gpu --hide-scrollbars \
             --remote-debugging-port=9222 --user-data-dir=/tmp/pocket-goat-chrome about:blank \
             > /tmp/pocket-goat-chrome.log 2>&1 &
@@ -146,6 +163,26 @@ jobs:
           node scripts/capture-full.mjs \
             http://127.0.0.1:3000/ro/events \
             qa-artifacts/events-ro-mobile-full.png \
+            390 844
+
+          node scripts/capture-full.mjs \
+            http://127.0.0.1:3000/ro/contact \
+            qa-artifacts/visit-ro-full.png \
+            1440 1000
+
+          node scripts/capture-full.mjs \
+            http://127.0.0.1:3000/ro/contact \
+            qa-artifacts/visit-ro-mobile-full.png \
+            390 844
+
+          node scripts/capture-full.mjs \
+            http://127.0.0.1:3000/ro/accessibility \
+            qa-artifacts/accessibility-ro-full.png \
+            1440 1000
+
+          node scripts/capture-full.mjs \
+            http://127.0.0.1:3000/ro/accessibility \
+            qa-artifacts/accessibility-ro-mobile-full.png \
             390 844
 
           kill "$CHROME_PID" || true
